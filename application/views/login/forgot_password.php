@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-12 text-center">
                             <div class="login-brand">
                                 <a href="<?= base_url();?>">
-                                    <img src="<?= base_url();?>assets/img/gracure-logo.svg" alt="" width="300px">
+                                    <img src="<?= base_url();?>assets/img/EF_LOGO_COMPLETE.svg" alt="" width="300px">
                                 </a>
                             </div>
                         </div>

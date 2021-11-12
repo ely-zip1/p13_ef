@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title><?php echo $title; ?> &mdash; Gracure</title>
+    <title><?php echo $title; ?> &mdash; Equifinance</title>
 
     <!-- favicon -->
     <link rel="icon" href="<?=base_url()?>assets/img/favicon.ico" type="image/gif">

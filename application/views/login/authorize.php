@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title><?php echo $title; ?> &mdash; Gracure</title>
+    <title><?php echo $title; ?> &mdash; Equifinance</title>
 
     <!-- favicon -->
     <link rel="icon" href="<?=base_url()?>assets/img/favicon.ico" type="image/gif">
@@ -131,7 +131,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="section footer-section">
         <div class="row">
             <div class="col-12">
-                <span class="all-rights-reserved">2021 Gracure Pharmaceuticals Ltd. All Rights Reserved
+                <span class="all-rights-reserved">© 2021 Equifinance Ltd
                 </span>
             </div>
         </div>

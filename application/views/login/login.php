@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title><?php echo $title; ?> &mdash; Gracure</title>
+    <title><?php echo $title; ?> &mdash; Equifinance</title>
 
     <!-- favicon -->
     <link rel="icon" href="<?=base_url()?>assets/img/favicon.ico" type="image/gif">
@@ -65,6 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <section class="login_section">
         <div class="login_form">
             <div class="row">
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="card login_card">
 
@@ -74,7 +75,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="col-12 text-center">
                                     <div class="login-brand">
                                         <a href="<?= base_url();?>">
-                                            <img src="<?= base_url();?>assets/img/gracure-logo.svg" alt="logo"
+                                            <img src="<?= base_url();?>assets/img/EF_LOGO_COMPLETE.svg" alt="logo"
                                                 width="300">
                                         </a>
                                     </div>
@@ -83,23 +84,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <h3 class="login-title"> </h3>
+                                    <!-- <h3 class="login-title"> Login</h3> -->
                                 </div>
                             </div>
 
                             <?php
 
-        if(isset($validation_error)){
-            echo '<div class="alert alert-danger">';                          
-            echo $validation_error;
-            echo '</div>';
-        }                                                                        
+                                if(isset($validation_error)){
+                                    echo '<div class="alert alert-danger">';                          
+                                    echo $validation_error;
+                                    echo '</div>';
+                                }                                                                        
 
-    ?>
+                            ?>
                             <!-- <form method="POST" action="#" class="needs-validation" novalidate=""> -->
                             <?php echo form_open('login'); ?>
                             <div class="form-group">
-                                <label for="username">Username:</label>
+                                <label for="username" class="log_reg_label">Username:</label>
                                 <input id="username" type="text"
                                     class="form-control <?php if(strlen(form_error('username')) > 0){echo "is-invalid";} ?>"
                                     name="username" tabindex="1" autofocus value="<?= set_value('username','',true)?>"
@@ -111,7 +112,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                             <div class="form-group">
                                 <div class="d-block">
-                                    <label for="password" class="control-label">Password:</label>
+                                    <label for="password" class="control-label log_reg_label">Password:</label>
 
                                 </div>
                                 <input id="password" type="password"
@@ -149,7 +150,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="section footer-section">
         <div class="row">
             <div class="col-12">
-                <span class="all-rights-reserved">2021 Gracure Pharmaceuticals Ltd. All Rights Reserved
+                <span class="all-rights-reserved">© 2021 Equifinance Ltd
                 </span>
             </div>
         </div>

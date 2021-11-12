@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title><?php echo $title; ?> &mdash; Gracure</title>
+    <title><?php echo $title; ?> &mdash; Equifinance</title>
 
     <!-- favicon -->
     <link rel="icon" href="<?=base_url()?>assets/img/favicon.ico" type="image/gif">
@@ -68,7 +68,8 @@
                             <div class="col-12 text-center">
                                 <div class="login-brand">
                                     <a href="<?= base_url();?>">
-                                        <img src="<?= base_url();?>assets/img/gracure-logo.svg" alt="logo" width="300">
+                                        <img src="<?= base_url();?>assets/img/EF_LOGO_COMPLETE.svg" alt="logo"
+                                            width="300">
                                     </a>
                                 </div>
                             </div>
@@ -77,7 +78,7 @@
                         <div class="card-body login_card_body">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <h3 class="reg-title">Account Registration</h3>
+                                    <h3 class="reg-title">Register</h3>
 
                                     <!-- <div class="reg_title">
                 <p>Already have an account? <a href="<?= base_url();?>login">Login</a></p>
@@ -218,7 +219,7 @@
     <div class="section footer-section">
         <div class="row">
             <div class="col-12">
-                <span class="all-rights-reserved">2021 Gracure Pharmaceuticals Ltd. All Rights Reserved
+                <span class="all-rights-reserved">© 2021 Equifinance Ltd
                 </span>
             </div>
         </div>
