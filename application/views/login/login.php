@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <section class="login_section">
         <div class="login_form">
             <div class="row">
-                <div class="col-lg-6 offset-md-3">
+                <div class="col-lg-4 offset-md-4">
                     <div class="card login_card">
 
 

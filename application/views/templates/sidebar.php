@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown <?php echo $this->uri->segment(1) == 'contact_us' ? 'active' : ''; ?>">
                 <a href="<?=base_url();?>contact_us" class="nav-link">
                     <!-- <img src="https://img.icons8.com/color/48/000000/online-support.png" /> -->
-                    <img src="https://img.icons8.com/color/48/000000/customer-support.png" />
+                    <img src="https://img.icons8.com/color/48/000000/headset.png" />
                     <span>Message
                         Support</span>
                 </a>

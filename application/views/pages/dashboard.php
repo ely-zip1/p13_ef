@@ -28,6 +28,16 @@ $this->load->view('templates/header');
             }?>
 
         <div class="section-body">
+
+            <div class="row">
+                <div class="user-details">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+            </div>
             <!-- row1 -->
             <div class="row">
                 <div class="col-md-3">

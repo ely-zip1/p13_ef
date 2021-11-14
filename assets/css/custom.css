@@ -15,17 +15,71 @@
     font-style: normal;
 }
 
-@media only screen and (max-width: 767px) {}
+@media only screen and (max-width: 767px) {
+    .nav-logo {
+        height: 20px !important;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    .nav-link-user {
+        width: 30px !important;
+    }
+    .navbar-right .dropdown .dropdown-toggle {
+        border-radius: 50px;
+        color: #000 !important;
+        /* padding: 5px !important; */
+        width: 40px !important;
+        height: 40px !important;
+        text-align: center !important;
+        /* border: 2px solid #ff0030; */
+    }
+    .logout-text::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f011" !important;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+
+/* Step 1: Common Properties: All required to make icons render reliably */
+
+
+/* .icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+} */
+
+
+/* Step 2: Reference Individual Icons */
+
+
+/* .login::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f007";
+  } */
+
+
+/* Note: Make sure to include the correct weight and Unicode value for the icon */
+
+
+/* .tps::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    content: "\f1ea";
+  } */
 
 body {
     background-color: rgb(114, 0, 0);
-    /* background-image: url('../img/gracure-logo-bg.svg'); */
-    background-position: center, bottom;
-    background-repeat: no-repeat;
-    background-position-x: -140px;
-    background-position-y: -105px;
-    font-family: 'roboto';
-    /* background-attachment: fixed; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-bg-admin {
@@ -105,16 +159,25 @@ body {
 }
 
 .nav-logo {
-    height: 30px !important;
+    height: 30px;
+}
+
+.navbar-right .dropdown .dropdown-toggle {
+    background: #ff0030;
+    border-radius: 50px;
+    color: #000 !important;
+    padding: 5px !important;
+    width: 100px;
+    text-align: center !important;
+    /* border: 2px solid #ff0030; */
 }
 
 .navbar-right .dropdown .dropdown-toggle::after {
-    background-image: url('../img/user2.svg') !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
-    border: none;
+    content: none;
+}
+
+.logout-text::after {
+    content: "LOGOUT";
 }
 
 .main-sidebar {

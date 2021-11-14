@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <br>
 
     <div class="footer-rights">
-        <span>2021 Gracure Pharmaceuticals Ltd. All Rights Reserved</span>
+        <span>© 2021 Equifinance Ltd</span>
     </div>
 
     <div class="footer-left">
