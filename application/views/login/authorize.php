@@ -45,27 +45,51 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login_reg.css">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style1.css" />
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/modernizr.custom.86080.js"></script>
 </head>
 
-<body class="body-login">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_1.jpg');?>" alt="First slide">
+<body class="body-login" id="page">
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_2.jpg');?>" alt="Second slide">
+        </li>
+        <li><span>Image 02</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_3.jpg');?>" alt="Third slide">
+        </li>
+        <li><span>Image 03</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-        </div>
-    </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+    </ul>
+
 
     <section class="login_section">
         <div class="login_form">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 offset-md-3">
                     <div class="card login_card">
 
 
@@ -74,7 +98,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="col-12 text-center">
                                     <div class="login-brand">
                                         <a href="<?= base_url();?>">
-                                            <img src="<?= base_url();?>assets/img/gracure-logo.svg" alt="logo"
+                                            <img src="<?= base_url();?>assets/img/EF_LOGO_COMPLETE.svg" alt="logo"
                                                 width="300">
                                         </a>
                                     </div>
@@ -84,7 +108,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <h3 class="login-title">AUTHENTICATION</h3>
-                                    <span class="text-dark">Please provide the code sent to your email account.</span>
+                                    <span class="text-white">Please provide the code sent to your email account.</span>
                                 </div>
                             </div>
 
@@ -105,8 +129,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <!-- <form method="POST" action="#" class="needs-validation" novalidate=""> -->
                             <?php echo form_open('authorize'); ?>
                             <div class="form-group">
-                                <label for="auth_code">Code:</label>
-                                <input id="auth_code" type="text"
+                                <label for="auth_code" class="log_reg_label">Code:</label>
+                                <input id="auth_code logreg_input" type="text"
                                     class="form-control <?php if(strlen(form_error('auth_code')) > 0){echo "is-invalid";} ?>"
                                     name="auth_code" tabindex="1" autofocus value="<?= set_value('auth_code','',true)?>"
                                     required>

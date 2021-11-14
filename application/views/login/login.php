@@ -45,28 +45,49 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login_reg.css">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style1.css" />
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/modernizr.custom.86080.js"></script>
 </head>
 
-<body class="body-login">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_1.jpg');?>" alt="First slide">
+<body class="body-login" id="page">
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_2.jpg');?>" alt="Second slide">
+        </li>
+        <li><span>Image 02</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_3.jpg');?>" alt="Third slide">
+        </li>
+        <li><span>Image 03</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-        </div>
-    </div>
-
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+    </ul>
     <section class="login_section">
         <div class="login_form">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-lg-6 offset-md-3">
                     <div class="card login_card">
 
 
@@ -121,12 +142,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="invalid-feedback">
                                     <?php echo form_error('password');?>
                                 </div>
-                                <div class="float-right">
+                                <!-- <div class="float-right">
                                     <a href="<?php echo base_url(); ?>forgot_password"
                                         class="text-small forgot_password">
                                         Forgot Password?
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-group text-right">
@@ -137,8 +158,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </form>
                             <div class="mb-3 text-center">
                                 <!-- <span class="create_account">Create an account. </span> -->
-                                <a class="sign_up" href="<?php echo base_url(); ?>registration">Sign
-                                    up</a>
+                                <a class="sign_up" href="<?php echo base_url(); ?>registration">
+                                    Create an account
+                                </a>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <a href="<?php echo base_url(); ?>forgot_password" class=" forgot_password">
+                                    Forgot Password?
+                                </a>
                             </div>
                         </div>
                     </div>

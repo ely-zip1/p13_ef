@@ -43,26 +43,48 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login_reg.css">
 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style1.css" />
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/modernizr.custom.86080.js"></script>
 </head>
 
-<body class="body-login">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_1.jpg');?>" alt="First slide">
+<body class="body-login" id="page">
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_2.jpg');?>" alt="Second slide">
+        </li>
+        <li><span>Image 02</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/SLIDER_3.jpg');?>" alt="Third slide">
+        </li>
+        <li><span>Image 03</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
             </div>
-        </div>
-    </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+    </ul>
     <section class="login_section">
         <div class="login_form">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 offset-lg-3">
                     <div class="card registration_card">
                         <div class="row">
                             <div class="col-12 text-center">
@@ -78,7 +100,7 @@
                         <div class="card-body login_card_body">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <h3 class="reg-title">Register</h3>
+                                    <h3 class="reg-title">REGISTRATION</h3>
 
                                     <!-- <div class="reg_title">
                 <p>Already have an account? <a href="<?= base_url();?>login">Login</a></p>
@@ -102,7 +124,8 @@
                             <div class="form-group">
                                 <label for="username" class="log_reg_label">Username:
                                 </label>
-                                <input id="reg-username" type="text" value="<?= set_value('username','',true)?>"
+                                <input id="reg-username logreg_input" type="text"
+                                    value="<?= set_value('username','',true)?>"
                                     class="form-control login_input <?php if(strlen(form_error('username')) > 0){echo "is-invalid";} ?>"
                                     name="username" autofocus required />
                                 <div class="invalid-feedback">
@@ -114,7 +137,8 @@
                             <div class="form-group">
                                 <label for="fullname" class="log_reg_label">Fullname:
                                 </label>
-                                <input id="fullname" type="text" value="<?= set_value('fullname','',true)?>"
+                                <input id="fullname logreg_input" type="text"
+                                    value="<?= set_value('fullname','',true)?>"
                                     class="form-control login_input <?php if(strlen(form_error('fullname')) > 0){echo "is-invalid";} ?>"
                                     name="fullname" autofocus required />
                                 <div class="invalid-feedback">
@@ -127,7 +151,7 @@
                             <div class="form-group">
                                 <label for="password" class="log_reg_label">Create Password:
                                 </label>
-                                <input id="reg-password" type="password"
+                                <input id="reg-password logreg_input" type="password"
                                     class="form-control login_input <?php if(strlen(form_error('password')) > 0){echo "is-invalid";} ?>"
                                     name="password" autofocus required />
                                 <div class="invalid-feedback">
@@ -143,7 +167,7 @@
                             <div class="form-group">
                                 <label for="confirm_password" class="log_reg_label">Repeat Password:
                                 </label>
-                                <input id="confirm_password" type="password"
+                                <input id="confirm_password logreg_input" type="password"
                                     value="<?= set_value('confirm_password','',true)?>"
                                     class="form-control login_input <?php if(strlen(form_error('confirm_password')) > 0){echo "is-invalid";} ?>"
                                     name="confirm_password" autofocus required />
@@ -156,7 +180,7 @@
                             <div class="form-group">
                                 <label for="email" class="log_reg_label">Email Address:
                                 </label>
-                                <input id="email" type="text" value="<?= set_value('email','',true)?>"
+                                <input id="email logreg_input" type="text" value="<?= set_value('email','',true)?>"
                                     class="form-control login_input <?php if(strlen(form_error('email')) > 0){echo "is-invalid";} ?>"
                                     name="email" autofocus required />
                                 <div class="invalid-feedback">
@@ -169,7 +193,7 @@
                             <div class="form-group">
                                 <label for="confirm_email" class="log_reg_label">Repeat Email:
                                 </label>
-                                <input id="confirm_email" type="text"
+                                <input id="confirm_email logreg_input" type="text"
                                     class="form-control login_input <?php if(strlen(form_error('confirm_email')) > 0){echo "is-invalid";} ?>"
                                     name="confirm_email" autofocus required />
                                 <div class="invalid-feedback">
@@ -185,7 +209,8 @@
                             <div class="form-group">
                                 <label for="referral" class="log_reg_label">Referred By:
                                 </label>
-                                <input id="referral" type="text" value="<?= set_value('referral',$referral_code,true)?>"
+                                <input id="referral logreg_input" type="text"
+                                    value="<?= set_value('referral',$referral_code,true)?>"
                                     class="form-control login_input <?php if(strlen(form_error('referral')) > 0){echo "is-invalid";} ?>"
                                     name="referral" autofocus required />
                                 <div class="invalid-feedback">

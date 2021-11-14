@@ -3,64 +3,84 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
-        <div class="sidebar-image-bg"></div>
+        <!-- <div class="sidebar-image-bg"></div> -->
         <div class="sidebar-brand">
-            <a href="<?php echo base_url(); ?>"><img src="<?=base_url();?>/assets/img/gracure-logo-white.svg"
-                    alt="Gracure" class="img_logo_main"></a>
+            <a href="<?php echo base_url(); ?>/account_settings">
+                <!-- <img src="<?=base_url();?>/assets/img/avatar/avatar-5.png" alt="User-avatar" class="img_logo_main"> -->
+                <!-- <span class="avatar-initials"><?=$avatar_initials;?></span> -->
+                <span class="avatar-initials"><img src="https://ui-avatars.com/api/?name=JU&background=ff0030&color=fff"
+                        alt="Avatar"></span>
+            </a>
+            <br>
+            <a href="<?php echo base_url(); ?>/account_settings">
+                <span class="sidebar_user"><?=$fullname;?></span>
+            </a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="<?php echo base_url(); ?>"><img src="<?=base_url();?>/assets/img/gracure-logo2.svg" alt="Gracure"
-                    class="img_logo_small"></a>
+            <a href="<?php echo base_url(); ?>">
+                <img src="<?=base_url();?>/assets/img/gracure-logo2.svg" alt="Gracure" class="img_logo_small">
+            </a>
         </div>
         <ul class="sidebar-menu">
             <!-- <li class="menu-header">Dashboard</li> -->
-            <li>
+            <!-- <li>
                 <a class="nav-link sidebar-user">
                     <i class="fas fa-user-circle"></i>
                     <span>Hi, <?=$fullname;?></span>
                 </a>
 
-            </li>
+            </li> -->
             <!-- <br> -->
             <li class="dropdown <?php echo $this->uri->segment(1) == 'dashboard' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>dashboard" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="<?=base_url();?>dashboard" class="nav-link">
+                    <!-- <img src="https://img.icons8.com/color/48/000000/imac.png" /> -->
+                    <img src="https://img.icons8.com/color/48/000000/monitor--v2.png" />
+                    <span>Dashboard</span>
+                </a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'plans' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>plans" class="nav-link"><i
-                        class="fas fa-university"></i><span>Deposit</span></a>
+                <a href="<?=base_url();?>plans" class="nav-link">
+                    <img src="https://img.icons8.com/color/48/000000/deposit.png" /><span>Deposit</span></a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'withdraw' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>withdraw" class="nav-link"><i
-                        class="fas fa-money-check-alt"></i><span>Withdraw</span></a>
+                <a href="<?=base_url();?>withdraw" class="nav-link">
+                    <!-- <img src="https://img.icons8.com/color/48/000000/withdrawal.png" /> -->
+                    <img src="https://img.icons8.com/color/48/000000/atm.png" />
+                    <span>Withdraw</span>
+                </a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'your_referrals' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>your_referrals" class="nav-link"><i
-                        class="fas fa-user-check"></i><span>Referral</span></a>
+                <a href="<?=base_url();?>your_referrals" class="nav-link">
+                    <img src="https://img.icons8.com/color/48/000000/conference.png" />
+                    <span>Referral</span>
+                </a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'fund_transfer' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>fund_transfer" class="nav-link"><i class="fas fa-random"></i><span>Fund
+                <a href="<?=base_url();?>fund_transfer" class="nav-link">
+                    <img src="https://img.icons8.com/color/48/000000/exchange.png" /><span>Fund
                         Transfer</span></a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'group_sales' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>group_sales" class="nav-link"><i class="fas fa-award"></i><span>Monthly
+                <a href="<?=base_url();?>group_sales" class="nav-link">
+                    <img src="https://img.icons8.com/color/48/000000/pay-date.png" /><span>Monthly
                         Bonus</span></a>
 
             </li>
 
             <li
                 class="dropdown <?php echo $this->uri->segment(1) == 'your_deposits'  || $this->uri->segment(1) == 'your_withdrawals'? 'active' : ''; ?>">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-history"></i><span>Transaction
+                <a href="#" class="nav-link has-dropdown">
+                    <img src="https://img.icons8.com/color/50/000000/payment-history.png" /><span>Transaction
                         History</span></a>
                 <ul class="dropdown-menu">
                     <li class="<?php echo $this->uri->segment(1) == 'your_deposits' ? 'active' : ''; ?>"><a
@@ -72,20 +92,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'contact_us' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>contact_us" class="nav-link"><i class="fas fa-headset"></i><span>Message
-                        Support</span></a>
+                <a href="<?=base_url();?>contact_us" class="nav-link">
+                    <!-- <img src="https://img.icons8.com/color/48/000000/online-support.png" /> -->
+                    <img src="https://img.icons8.com/color/48/000000/customer-support.png" />
+                    <span>Message
+                        Support</span>
+                </a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'rewards' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>rewards" class="nav-link"><i class="fas fa-mobile-alt"></i><span>Redeemable
+                <a href="<?=base_url();?>rewards" class="nav-link">
+                    <img src="https://img.icons8.com/color/48/000000/ruby-gemstone.png" /><span>Redeemable
                         Items</span></a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'about_us' ? 'active' : ''; ?>">
-                <a href="https://www.gracure.com/about-us/" class="nav-link"><i
-                        class="fas fa-info-circle"></i><span>About Us</span></a>
+                <a href="https://www.gracure.com/about-us/" class="nav-link">
+                    <img src="https://img.icons8.com/color/48/000000/info--v1.png" /><span>About Us</span></a>
 
             </li>
 

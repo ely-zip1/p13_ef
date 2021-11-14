@@ -12,6 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
                                     class="fas fa-bars"></i></a></li>
+                        <li>
+                            <a href="<?= base_url();?>" class="nav-link nav-link-lg">
+                                <img class="nav-logo" src="<?= base_url();?>assets/img/EF_LOGO_COMPLETE.svg" alt="Home"
+                                    height="20px">
+                            </a>
+                        </li>
                     </ul>
 
                 </form>

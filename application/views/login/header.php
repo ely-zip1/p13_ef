@@ -52,6 +52,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
     gtag('config', 'UA-94034622-3');
     </script>
     <!-- /END GA -->
+
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style1.css" />
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/modernizr.custom.86080.js"></script>
 </head>
 
-<body class="body-login">
+<body class="body-login" id="page">
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 02</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 03</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+        <li><span>Image 04</span>
+            <div>
+                <!-- <h3>re·lax·a·tion</h3> -->
+            </div>
+        </li>
+    </ul>
