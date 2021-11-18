@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="95"
+   height="95"
+   viewBox="0 0 95 95"
+   sodipodi:docname="ef_logo-white.svg"
+   inkscape:export-filename="C:\xampp\htdocs\p13_ef\assets\img\equifinance_logo.png"
+   inkscape:export-xdpi="1010.5263"
+   inkscape:export-ydpi="1010.5263"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:lockguides="true"
+     inkscape:zoom="1.3730728"
+     inkscape:cx="2.913174"
+     inkscape:cy="16.386604"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g8"
+     transform="translate(-8.3974641,-4.8999018)">
+    <path
+       id="rect849"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0"
+       d="m 33.406865,28.933588 h 64.63015 C 93.550614,36.266263 88.850677,43.545555 78.982709,49.532839 H 14.352559 C 15.66294,42.666422 22.488348,35.800005 33.406865,28.933588 Z"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       id="rect849-6"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0"
+       d="M 33.27812,53.652689 H 97.90827 C 93.421869,60.985364 88.721932,68.264656 78.853964,74.25194 H 14.223813 C 15.534194,67.385523 22.359602,60.519106 33.27812,53.652689 Z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

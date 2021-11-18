@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="<?php echo base_url(); ?>">
-                <img src="<?=base_url();?>/assets/img/gracure-logo2.svg" alt="Gracure" class="img_logo_small">
+                <img src="https://ui-avatars.com/api/?name=JU&background=ff0030&color=fff" alt="Gracure"
+                    class="img_logo_small">
             </a>
         </div>
         <ul class="sidebar-menu">

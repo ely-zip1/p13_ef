@@ -29,7 +29,8 @@ class Authorize extends CI_Controller
               'fullname' => $member_data->full_name,
               'date_registered' => $member_data->date,
               'username' => $member_data->username,
-              'user_id' => $member_data->id
+              'user_id' => $member_data->id,
+              'last_access' => $member_data->last_access
           );
 
           $this->session->set_userdata($userdata);

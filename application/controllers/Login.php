@@ -55,8 +55,7 @@ class Login  extends CI_Controller
 						'username' => $member_data->username,
 						'user_id' => $member_data->id,
 						'country' => $member_data->country,
-						'image_name' => $member_data->image_name,
-						'image_orientation' => $member_data->image_orientation
+						'last_access' => $member_data->last_access
 					);
 
 					if($member_data->account_type_id == '1' || $member_data->account_type_id == '3'){

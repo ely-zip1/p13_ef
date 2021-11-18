@@ -29,6 +29,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/codepen.css" />
 
+    <link rel="stylesheet" href="https://cdn.cryptofonts.com/1.3.5/cryptofont.css">
+
 
 
     <!-- Template CSS -->
@@ -37,10 +39,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
     <!-- Start GA -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+    </style>
 
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+    </style>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap');
+    </style>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+    </style>
 
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -92,6 +105,16 @@ the responsive table generator code on sites not in UNLcms or the UNL.edu framew
                 <span aria-hidden="true">&times;</span>
             </button>
             <img src="<?= base_url("/assets/img/announcement-modal.png")?>" alt="announcement" width="100%">
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade modal-copy-success" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            Affiliate Link: Copied Successfuly
         </div>
     </div>
 </div>

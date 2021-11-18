@@ -7,9 +7,9 @@
 
 
 
-$(document).ready(function () {
+$(document).ready(function() {
     "use strict";
-    $('#copy-refcode').click(function () {
+    $('#copy-refcode').click(function() {
         var copyText = document.getElementById("link");
         copyText.type = 'text';
         copyText.select();
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
         // $('h2').addClass('referral-code-tooltip');
 
-        $('h2').addClass('referral-code-tooltip').delay(800).queue(function (next) {
+        $('h2').addClass('referral-code-tooltip').delay(800).queue(function(next) {
             $('h2').removeClass('referral-code-tooltip')
             next();
         });
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     // $('#tooltip_copy').hide();
 
-    $('#package-1').click(function () {
+    $('#package-1').click(function() {
         if ($('#plan-1').is(':hidden') == true) {
 
             $('#plan-1').removeAttr('hidden');
@@ -59,7 +59,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#package-2').click(function () {
+    $('#package-2').click(function() {
         if ($('#plan-2').is(':hidden') == true) {
 
             $('#plan-1').attr('hidden', true);
@@ -78,7 +78,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#package-3').click(function () {
+    $('#package-3').click(function() {
         if ($('#plan-3').is(':hidden') == true) {
 
             $('#plan-1').attr('hidden', true);
@@ -95,6 +95,14 @@ $(document).ready(function () {
             $('#deposit-amount').val("9000");
             $('#deposit-amount').focus();
         }
+    });
+
+    $('#TextToCopy').click(function() {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($('#affiliate-link').text()).select();
+        document.execCommand("copy");
+        $temp.remove();
     });
 
 });

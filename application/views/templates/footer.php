@@ -2,20 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <footer class="main-footer">
-    <!-- <div class="row">
-
-        <ul class="payment-modes">
-            <li><img src="<?= base_url();?>assets/img/bitcoin-btc-logo-full.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/ethereum-eth-logo.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/xrp-xrp-logo.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/litecoin-ltc-logo-full.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/bitcoin-cash-bch-logo.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/tron-trx-logo-full.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/Mastercard-logo.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/Visa_Inc._logo.svg" alt=""></li>
-            <li><img src="<?= base_url();?>assets/img/american_express_icon.svg" alt=""></li>
-        </ul>
-    </div> -->
+    <div class="row">
+        <div class="col-12">
+            <div class="crypto-list">
+                <i class="cf cf-btc"></i>
+                <i class="cf cf-eth"></i>
+                <i class="cf cf-bch"></i>
+                <i class="cf cf-trx"></i>
+                <i class="cf cf-xrp"></i>
+                <i class="cf cf-ltc"></i>
+                <i class="cf cf-doge"></i>
+            </div>
+        </div>
+    </div>
 
     <br>
 

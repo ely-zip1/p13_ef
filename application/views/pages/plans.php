@@ -39,95 +39,34 @@ $this->load->view('templates/header');
                 <!-- ================================================================================= -->
 
                 <div class="col-sm-4 ">
-                    <div class="card plan-card plan-card-2 text-center">
-                        <div class="d-flex justify-content-around plan-logo-wrapper">
-                            <div class="plan-logo plan-2">
-                                <img src="<?=base_url();?>/assets/img/basic-shield.svg" alt="">
-                            </div>
-
-                            <div class="plan-name float-right">
-                                Basic
-                                Cure
+                    <div class="card plan-card">
+                        <!-- <div class="card-top d-flex flex-column justify-content-center text-center"> -->
+                        <div class="card-top">
+                            <p class="package-title-1">Bronze Package</p>
+                            <div class="package-price">
+                                <p class="package-min-price">$<strong>100</strong></p>
+                                <span class="package-price-caption">MINIMUM DEPOSIT</span>
                             </div>
                         </div>
-                        <div class="row d-flex flex-column">
-                            <span class="daily-rate">1.5%</span>
-                            <span class="daily-rate-label">Daily for 200 Days</span>
+                        <div class="card-mid d-flex flex-column justify-content-center text-center">
+                            <span class="package-detail contract">
+                                <h2>180</h2> Contract Days
+                            </span>
+                            <span class="package-detail interest">
+                                <h2>15<sup>%</sup></h2> Daily Interest
+                            </span>
+                            <span class="package-detail">
+                                Referral Bonus
+                            </span>
+                            <span class="package-detail">
+                                Monthly Bonus
+                            </span>
+                            <span class="package-detail">
+                                Cycle Bonus
+                            </span>
                         </div>
-                        <div class="row d-flex justify-content-around">
-                            <span class="rate-label">Min Deposit</span>
-                            <span class="min-rate">90 <sup>USD</sup></span>
-                        </div>
-                        <div class="row d-flex justify-content-around">
-                            <span class="rate-label">Max Deposit</span>
-                            <span class="max-rate">899 <sup>USD</sup></span>
-                        </div>
-                        <div class="plan-button">
-                            <button class="btn plan-button-2" id="package-1">Invest</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================================================================================= -->
-
-                <div class="col-sm-4">
-                    <div class="card plan-card plan-card-2 text-center">
-                        <div class="d-flex justify-content-around plan-logo-wrapper">
-                            <div class="plan-logo plan-2">
-                                <img src="<?=base_url();?>/assets/img/minor-shield.svg" alt="">
-                            </div>
-
-                            <div class="plan-name float-right">
-                                Minor
-                                Cure
-                            </div>
-                        </div>
-                        <div class="row d-flex flex-column">
-                            <span class="daily-rate">1.8%</span>
-                            <span class="daily-rate-label">Daily for 180 Days</span>
-                        </div>
-                        <div class="row d-flex justify-content-around">
-                            <span class="rate-label">Min Deposit</span>
-                            <span class="min-rate">900 <sup>USD</sup></span>
-                        </div>
-                        <div class="row d-flex justify-content-around">
-                            <span class="rate-label">Max Deposit</span>
-                            <span class="max-rate">8,999 <sup>USD</sup></span>
-                        </div>
-                        <div class="plan-button">
-                            <button class="btn plan-button-2" id="package-2">Invest</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================================================================================= -->
-
-                <div class="col-sm-4">
-                    <div class="card plan-card plan-card-2 text-center">
-                        <div class="d-flex justify-content-around plan-logo-wrapper">
-                            <div class="plan-logo plan-2">
-                                <img src="<?=base_url();?>/assets/img/major-shield.svg" alt="">
-                            </div>
-
-                            <div class="plan-name float-right">
-                                Major
-                                Cure
-                            </div>
-                        </div>
-                        <div class="row d-flex flex-column">
-                            <span class="daily-rate">2%</span>
-                            <span class="daily-rate-label">Daily for 150 Days</span>
-                        </div>
-                        <div class="row d-flex justify-content-around">
-                            <span class="rate-label">Min Deposit</span>
-                            <span class="min-rate">9,000 <sup>USD</sup></span>
-                        </div>
-                        <div class="row d-flex justify-content-around">
-                            <span class="rate-label">Max Deposit</span>
-                            <span class="max-rate">∞ USD</span>
-                        </div>
-                        <div class="plan-button">
-                            <button class="btn plan-button-2" id="package-3">Invest</button>
+                        <div class="card-bot text-center">
+                            <a href="" class="buy-button">Buy Now</a>
                         </div>
                     </div>
                 </div>
