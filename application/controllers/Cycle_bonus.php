@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Group_sales  extends CI_Controller
+class Cycle_bonus  extends CI_Controller
 {
 	public function __construct()
 	{
@@ -23,7 +23,7 @@ class Group_sales  extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'title' => 'Monthly Bonus'
+			'title' => 'Cycle Bonus'
 		);
 
 		$data['username'] = $this->session->userdata('username');
@@ -92,7 +92,7 @@ class Group_sales  extends CI_Controller
 				
 			$data['bonus_history'] = $history;
 			
-			$this->load->view('pages/group_sales', $data);
+			$this->load->view('pages/cycle_bonus', $data);
 		
         }
 

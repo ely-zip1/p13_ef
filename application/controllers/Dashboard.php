@@ -93,6 +93,25 @@ class Dashboard extends CI_Controller {
 		}
 		// $data['referral_code'] = $this->Referral_codes->get_members_code($member_data->referral_code_id)->code;
 
+		$initials = "";
+		$temp = 0;
+		$names = explode(" ", $this->session->userdata('fullname'));
+		
+		if(count($names) >= 2){
+
+		  foreach($names as $name){
+			$initials += substr($name,0,1);
+			$temp++;
+
+			if($temp == 2){
+			  break;
+			}
+		  }
+		}else{
+		  $initials = substr($this->session->userdata('fullname'),0,2);
+		}
+		$data['user_initials'] = $initials;
+		
 		$this->load->view('pages/dashboard', $data);
 	}
 }

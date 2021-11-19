@@ -18,7 +18,7 @@ $this->load->view('templates/header');
                             <h4>History</h4>
                         </div> -->
                         <div class="card-body table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped table-sm table-dark">
                                 <tbody>
                                     <tr>
                                         <th scope="col">Amount</th>

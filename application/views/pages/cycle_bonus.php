@@ -7,11 +7,11 @@
     <section class="section">
         <div class="section-body">
             <div class="section-header section-header-custom">
-                <h1>MONTHLY BONUS</h1>
+                <h1>CYCLE BONUS</h1>
             </div>
 
             <div class="row">
-                <div class="col-lg-12 monthly-bonus-image">
+                <div class="col-lg-12 cycle-bonus-image">
                 </div>
             </div>
 

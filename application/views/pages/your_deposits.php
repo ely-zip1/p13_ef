@@ -14,8 +14,7 @@ $this->load->view('templates/header');
             <!-- <div class="row deposit-row"> -->
 
 
-            <div class="row">
-                <!-- <div class="col-lg-3"></div> -->
+            <!-- <div class="row">
                 <div class="col-lg-12">
                     <div class="card card_pending_withdraw">
                         <div class="card-body ">
@@ -25,7 +24,7 @@ $this->load->view('templates/header');
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <div class="col-12">
                     <div class="card bg-info text-dark card_total_deposit">
@@ -40,10 +39,10 @@ $this->load->view('templates/header');
                 <div class="col-12">
                     <div class="card text-dark card_deposits_basic">
                         <div class="card-header">
-                            <h4>BASIC CURE </h4>
+                            <h4>BRONZE PACKAGE</h4>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-hover table-striped table-sm">
+                            <table class="table table-hover table-striped table-sm table-dark">
                                 <thead>
                                     <tr>
                                         <th scope="col">Amount</th>
@@ -76,10 +75,10 @@ $this->load->view('templates/header');
                 <div class="col-12">
                     <div class="card text-dark card_deposits_mega">
                         <div class="card-header">
-                            <h4>MINOR CURE</h4>
+                            <h4>GOLD PACKAGE</h4>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-hover table-striped table-sm">
+                            <table class="table table-hover table-striped table-sm table-dark">
                                 <thead>
                                     <tr>
                                         <th scope="col">Amount</th>
@@ -112,10 +111,10 @@ $this->load->view('templates/header');
                 <div class="col-12">
                     <div class="card text-dark card_deposits_vip">
                         <div class="card-header">
-                            <h4>MAJOR CURE</h4>
+                            <h4>V.I.P. PACKAGE</h4>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-hover table-striped table-sm">
+                            <table class="table table-hover table-striped table-sm table-dark">
                                 <thead>
                                     <tr>
                                         <th scope="col">Amount</th>

@@ -33,6 +33,25 @@ class Authorize extends CI_Controller
               'last_access' => $member_data->last_access
           );
 
+          // $initials = "";
+          // $temp = 0;
+          // $names = explode(" ", $member_data->full_name);
+          
+          // if(count($names) >= 2){
+          //   foreach($names as $name){
+              
+          //     $initials += substr($name,0,1);
+          //     $temp++;
+
+          //     if($temp == 2){
+          //       break;
+          //     }
+          //   }
+          // }else{
+          //   $initials = substr($this->session->userdata('fullname'),0,2);
+          // }
+          // $userdata['avatar_initials'] = $initials;
+
           $this->session->set_userdata($userdata);
 					$this->session->set_flashdata('new-login', "1");
 

@@ -14,13 +14,15 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-3"></div>
+                <!-- <div class="col-sm-3"></div> -->
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="card card_message">
                         <div class="card-body">
                             <p>
-                                Send us a message and we'll reach you via email.
+                                Concerns, suggestions, complaints? - You can tell us about it. We'll be sure to get back
+                                to
+                                you.
                             </p>
 
                             <?php
@@ -45,7 +47,7 @@
                                     required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-lg btn-block btn-message-submit"
+                            <button type="submit" class="btn btn-lg btn-message-submit float-right"
                                 onclick="this.disabled=true;this.value='Submitting...'; this.form.submit();">
                                 Submit
                             </button>

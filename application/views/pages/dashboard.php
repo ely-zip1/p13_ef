@@ -10,6 +10,7 @@ $this->load->view('templates/header');
     <section class="section">
         <div class="section-header">
             <h1>DASHBOARD</h1>
+            <!-- <?= print_r($this->session->get_userdata());?> -->
         </div>
 
         <?php if(isset($is_verified)){

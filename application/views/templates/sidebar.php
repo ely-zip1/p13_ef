@@ -8,8 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a href="<?php echo base_url(); ?>/account_settings">
                 <!-- <img src="<?=base_url();?>/assets/img/avatar/avatar-5.png" alt="User-avatar" class="img_logo_main"> -->
                 <!-- <span class="avatar-initials"><?=$avatar_initials;?></span> -->
-                <span class="avatar-initials"><img src="https://ui-avatars.com/api/?name=JU&background=ff0030&color=fff"
-                        alt="Avatar"></span>
+                <span class="avatar-initials">
+                    <img src="https://ui-avatars.com/api/?name=<?=$fullname?>&background=ff0030&color=fff" alt="Avatar">
+
+                </span>
             </a>
             <br>
             <a href="<?php echo base_url(); ?>/account_settings">
@@ -78,6 +80,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             </li>
 
+            <li class="dropdown <?php echo $this->uri->segment(1) == 'cycle_bonus' ? 'active' : ''; ?>">
+                <a href="<?=base_url();?>cycle_bonus" class="nav-link">
+                    <img src="https://img.icons8.com/color-glass/48/000000/gift.png" /><span>Cycle
+                        Bonus</span></a>
+
+            </li>
+
             <li
                 class="dropdown <?php echo $this->uri->segment(1) == 'your_deposits'  || $this->uri->segment(1) == 'your_withdrawals'? 'active' : ''; ?>">
                 <a href="#" class="nav-link has-dropdown">
@@ -102,15 +111,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'rewards' ? 'active' : ''; ?>">
+            <!-- <li class="dropdown <?php echo $this->uri->segment(1) == 'rewards' ? 'active' : ''; ?>">
                 <a href="<?=base_url();?>rewards" class="nav-link">
                     <img src="https://img.icons8.com/color/48/000000/ruby-gemstone.png" /><span>Redeemable
                         Items</span></a>
 
-            </li>
+            </li> -->
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'about_us' ? 'active' : ''; ?>">
-                <a href="https://www.gracure.com/about-us/" class="nav-link">
+                <a href="https://www.equifinance.co.uk/about-us" class="nav-link">
                     <img src="https://img.icons8.com/color/48/000000/info--v1.png" /><span>About Us</span></a>
 
             </li>

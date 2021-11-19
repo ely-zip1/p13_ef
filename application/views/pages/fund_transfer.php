@@ -33,8 +33,8 @@
                             <?php echo form_open('fund_transfer'); ?>
                             <div class="form-row">
                                 <div class="form-group col-md-6 deposit-form">
-                                    <label for="receiver_code">Send to <span class="text-muted">(RECEIVER'S
-                                            CODE)</span></label>
+                                    <label for="receiver_code">RECEPIENT <span class="text-muted">(Username of the
+                                            receiver)</span></label>
                                     <div class="input-group mb-2">
                                         <!-- <div class="input-group-prepend">
                                     <div class="input-group-text">https://coralgold.org/my/ref/</div>
@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6  deposit-form">
-                                    <label for="transfer_amount">Amount <span class="text-muted">(USD)</span></label>
+                                    <label for="transfer_amount">Amount <span class="text-muted">($)</span></label>
                                     <input type="text"
                                         class="deposit-amount form-control <?php if(strlen(form_error('transfer_amount')) > 0){echo "is-invalid";} ?>"
                                         name="transfer_amount" id="deposit-amount" placeholder="$ 0.00"
@@ -60,11 +60,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-block btn-large submit-transfer"
-                                    name="deposit-submit-button">SEND</button>
-                                <?php echo form_close(); ?>
+                            <div class="row">
+                                <div class="col-md-3 offset-md-9">
+                                    <button type="submit" class="btn btn-block btn-lg submit-transfer"
+                                        name="deposit-submit-button">SEND</button>
+                                    <?php echo form_close(); ?>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -78,7 +81,7 @@
                             <h4>SENT FUNDS</h4>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped table-dark">
                                 <tbody>
                                     <tr>
                                         <th scope="col">Amount</th>
@@ -106,7 +109,7 @@
                             <h4>RECEIVED FUNDS</h4>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped table-dark">
                                 <tbody>
                                     <tr>
                                         <th scope="col">Amount</th>

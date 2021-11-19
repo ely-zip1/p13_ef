@@ -65,6 +65,12 @@
     .crypto-list i {
         font-size: 2em !important;
     }
+    .monthly-bonus-image {
+        height: 20vh !important;
+    }
+    .table-receipt-data {
+        text-align: left !important;
+    }
 }
 
 body {
@@ -205,11 +211,15 @@ body {
 }
 
 .sidebar-menu li.active ul.dropdown-menu li a {
-    background: #b30021 !important;
+    background: #E62E2D !important;
 }
 
 .sidebar-menu li.active>a:before {
     background-color: #790000 !important;
+}
+
+.main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
+    background: #b30021 !important;
 }
 
 a.sidebar-user {
@@ -451,6 +461,7 @@ button) {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #c4c4c4;
+    color: #1F1F1F;
 }
 
 .contract,
@@ -462,8 +473,9 @@ button) {
 .contract h2,
 .interest h2 {
     margin-bottom: -5px;
-    font-family: 'Montserrat', sans-serif;
-    /* color: white; */
+    font-family: 'Anton', sans-serif;
+    color: rgb(37, 37, 37);
+    letter-spacing: 1px;
 }
 
 .interest {
@@ -581,9 +593,9 @@ button) {
 
 .row-deposit {
     background-color: #1f1f1f;
-    padding: 10px;
+    padding: 50px 10px;
     box-shadow: 0px 0px 10px #00000063;
-    border-radius: 20px;
+    border-radius: 2px;
     /* font-family: 'bebas_neueregular'; */
 }
 
@@ -620,28 +632,42 @@ button) {
 }
 
 .deposit-details {
-    background-color: #ffffff;
-    border-radius: 20px;
+    background-color: #1F1F1F;
+    border-radius: 2px;
     box-shadow: 0px 0px 10px #00000063;
     padding: 20px
 }
 
 .deposit-details .card {
     border-radius: 20px;
-    padding: 20px;
-    background: #c63c96;
+    padding: 20px 0px;
+    background: #1F1F1F;
     color: white;
+    box-shadow: none;
+}
+
+.receipt-header {
+    display: flex;
+    justify-content: center;
+}
+
+.receipt-header img {
+    height: 1.3rem;
 }
 
 .deposit_detail_confirm {
     margin: 10px !important;
-    background: #4304fa;
+    background: #ff0030;
     color: #fff;
     float: right;
 }
 
+.deposit_detail_confirm:hover {
+    background: #EEA21D;
+}
+
 .alert-receipt {
-    color: #4304fa;
+    color: #EEA21D;
 }
 
 .details-table {
@@ -659,18 +685,21 @@ button) {
 
 .table-receipt-row {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .table-receipt-head {
     /* color: #4b4b4b; */
-    color: #5c0e66;
+    color: #eea21d;
     font-weight: bold;
 }
 
 .table-receipt-data {
     font-size: 15px;
     font-weight: bold;
-    font-family: consolas;
+    text-align: end;
+    /* font-family: consolas; */
 }
 
 .withdrawal_alert {
@@ -750,39 +779,108 @@ button) {
     font-weight: bold;
 }
 
-.row_transfer_form .card {
+.row_transfer_form .card,
+.card_fund_sent,
+.card_fund_received {
     padding: 20px;
+    background-color: #1F1F1F;
+    border-radius: 2px;
+    color: white;
+}
+
+.row_transfer_form .card label {
+    color: #eea21d;
 }
 
 .submit-transfer {
-    background: #e72e95;
+    background: #ff0030;
     color: white;
 }
 
 .submit-transfer:hover {
-    background: #fd6abb !important;
+    background: #eea21d !important;
     /* color: rgb(172, 172, 172) !important; */
+}
+
+.p2p_history h4 {
+    color: white;
+}
+
+.monthly-bonus-image {
+    background: url('../img/bonus1.jpg');
+    background-size: cover;
+    background-position-y: center;
+    border-radius: 3px;
+    height: 40vh;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.61);
+}
+
+.cycle-bonus-image {
+    background: url('../img/bonus3.jpg');
+    background-size: cover;
+    background-position-y: 70%;
+    border-radius: 3px;
+    height: 40vh;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.61);
 }
 
 .row-accounts .card {
     box-shadow: 0px 0px 5px #00000063 !important;
-    background: rgb(198, 60, 150);
-    background: rgb(198, 60, 150);
-    background: linear-gradient(140deg, rgba(198, 60, 150, 1) 0%, rgba(255, 157, 221, 1) 81%);
+    background: #1F1F1F;
+    background: linear-gradient(140deg, rgb(19, 19, 19) 0%, rgb(53, 53, 53) 81%);
 }
 
-.row-accounts h4,
-.row-accounts label {
+.row-accounts h4 {
     color: white;
 }
 
+.row-accounts label {
+    color: #eea21d;
+}
+
+.row-accounts .btn {
+    background: #ff0030 !important;
+    box-shadow: none;
+    border: none;
+}
+
+.row-accounts .btn:hover {
+    background: #eea21d !important;
+    box-shadow: none;
+    border: none;
+}
+
+.deposit-row .card {
+    background: #1F1F1F;
+}
+
+.deposit-row h4 {
+    color: #EEA21D;
+}
+
+.deposit-row .card-header {
+    border: none !important;
+    display: flex;
+    justify-content: center;
+}
+
+.card_message {
+    background: #1F1F1F;
+    border-radius: 2px;
+    color: white;
+}
+
+.card_message label {
+    color: #eea21d;
+}
+
 .btn-message-submit {
-    background-color: #c63c96;
+    background-color: #ff0030;
     color: white;
 }
 
 .btn-message-submit:hover {
-    background-color: #e049ac !important;
+    background-color: #EEA21D !important;
     color: white;
 }
 
