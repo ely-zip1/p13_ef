@@ -69,7 +69,8 @@
 
 body {
     /* background-color: rgb(114, 0, 0); */
-    background: rgb(255 229 229);
+    /* background: rgb(255, 229, 229); */
+    background-color: white;
     font-family: 'Poppins', sans-serif;
     color: black !important;
 }
@@ -95,11 +96,10 @@ body {
 }
 
 .navbar-bg {
-    background: rgb(31, 31, 31) !important;
+    /* background: rgb(31, 31, 31) !important; */
     background: rgb(31, 31, 31) !important;
     /* background-image: url('../img/liquid-cheese.svg');
     background-size: cover; */
-    /* z-index: 1; */
 }
 
 .user-dropdown {
@@ -137,16 +137,18 @@ body {
 
 .section-header {
     border-radius: 2px !important;
-    /* background: rgb(151, 0, 0) !important; */
     background: #EEA21D !important;
     border-top: none !important;
-    /* background: linear-gradient(13deg, rgba(198, 60, 150, 1) 49%, rgba(59, 0, 255, 1) 100%); */
-    /* box-shadow: 2px 5px 10px rgba(46, 46, 46, 0.479) !important; */
     box-shadow: 2px 6px 20px 0px #0000002e;
+    /* z-index: 1000000 !important; */
+    display: flex;
+    justify-content: center;
 }
 
 .section-header h1 {
     color: white !important;
+    /* text-shadow: 1px 2px #1F1F1F; */
+    font-weight: bolder !important;
 }
 
 .nav-link {
@@ -374,13 +376,15 @@ button) {
     text-shadow: 3px 3px 2px black;
 }
 
+.plan-card {
+    /* box-shadow: 0px 0px 10px #000000; */
+    border-radius: 5px;
+}
+
 .card-top {
-    background: #232526;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #414345, #232526);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #414345, #232526);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1f1f1f;
+    /* background: -webkit-linear-gradient(-45deg, #414345, #1f1f1f);
+    background: linear-gradient(-45deg, #414345, #1f1f1f); */
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     display: flex;
@@ -392,15 +396,19 @@ button) {
 }
 
 .card-top::before {
-    content: url(../img/ef_logo-white.svg);
+    /* content: ''; */
+    background: url('../img/ef_logo-diagonal.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 80%;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0%;
+    right: 0%;
     filter: opacity(.2);
-    transform: scale(2, 2) rotate(-40deg);
 }
 
-.package-title-1 {
+.package-title {
     font-size: 20px;
     font-weight: bold;
     color: #fff;
@@ -408,14 +416,13 @@ button) {
     z-index: 10000;
 }
 
-.package-title-1::after {
+.package-title::after {
     position: absolute;
     left: -2%;
     top: -20%;
     content: '';
-    background: red;
     height: 41px;
-    width: 22ch;
+    width: 85%;
     z-index: -1;
 }
 
@@ -442,55 +449,174 @@ button) {
 .card-mid {
     font-size: 1rem;
     padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #c4c4c4;
 }
 
 .contract,
 .interest {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bolder;
 }
 
 .contract h2,
 .interest h2 {
     margin-bottom: -5px;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    /* color: white; */
 }
 
 .interest {
     margin: 15px auto !important;
 }
 
+.card-bot {
+    /* background: rgb(253, 29, 29);
+    background: linear-gradient(180deg, rgba(253, 29, 29, 1) 0%, rgba(143, 0, 0, 1) 100%); */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.452);
+    background: #1f1f1f;
+}
+
+.buy-button {
+    background: transparent;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+}
+
+.buy-button:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.buy-button:focus {
+    border: none;
+    text-decoration: none;
+}
+
+.bronze-plan .package-title::after {
+    background-color: #e8c99b;
+    background-image: linear-gradient(315deg, #e8c99b 0%, #e8bc85 74%);
+}
+
+.bronze-plan .package-title {
+    color: rgba(45, 00, 0, 0.55);
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #dea173;
+}
+
+.bronze-plan .package-price {
+    /* color: rgba(45, 00, 0, 0.55); */
+    color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    background: linear-gradient( #e8c99b 0%, #af715e 74%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.bronze-plan>.card-mid {
+    background-color: #fbb034;
+    background-image: linear-gradient(315deg, #e8c99b 0%, #af8b5e 74%);
+}
+
+.gold-plan .package-title::after {
+    background-color: #fbb034;
+    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+}
+
+.gold-plan .package-title {
+    color: rgb(97, 63, 0);
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #ffbb00;
+}
+
+.gold-plan .package-price {
+    /* color: rgba(45, 00, 0, 0.55); */
+    color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    background: linear-gradient( #fbb034 0%, #ffdd00 74%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.gold-plan>.card-mid {
+    background-color: #fbb034;
+    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+}
+
+.vip-plan .package-title::after {
+    background-color: #6c33a3;
+    background-image: linear-gradient(316deg, #cc00ff 0%, #8241b8 74%);
+}
+
+.vip-plan .package-title {
+    color: #eddaff;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1f1f1f;
+}
+
+.vip-plan .package-price {
+    /* color: rgba(45, 00, 0, 0.55); */
+    color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    background: linear-gradient( #cc00ff 0%, #8241b8 74%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.vip-plan>.card-mid {
+    background-color: #6c33a3;
+    background-image: linear-gradient(316deg, #cc00ff 0%, #8241b8 74%);
+}
+
 .row-deposit {
-    background-color: #fff;
+    background-color: #1f1f1f;
     padding: 10px;
     box-shadow: 0px 0px 10px #00000063;
     border-radius: 20px;
     /* font-family: 'bebas_neueregular'; */
 }
 
-.chosen-plan {
-    color: #c63c96;
-    font-size: 30px;
+.row-deposit label {
+    color: #EEA21D;
+}
+
+.chosen-plan-panel {
+    color: #ffffff;
+    font-size: 3em;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
 }
 
 .chosen-plan-panel p {
     /* color: #c63c96; */
-    font-size: 30px;
+    font-size: 90px;
+    line-height: normal !important;
 }
 
 .submit-deposit {
-    background-color: #e72e95;
+    background-color: #ff0030;
     color: white;
-    font-weight: lighter;
+    font-weight: bold;
     font-size: 15px;
 }
 
 .submit-deposit:hover {
-    background-color: #f767b6 !important;
+    background-color: #eea21d !important;
 }
 
 .submit-deposit:focus {
-    background-color: #922863 !important;
+    background-color: #b40021 !important;
 }
 
 .deposit-details {
@@ -547,43 +673,51 @@ button) {
     font-family: consolas;
 }
 
+.withdrawal_alert {
+    background-color: #1F1F1F;
+    color: greenyellow;
+    border-radius: 2px;
+}
+
+.withdraw-box {
+    background-color: #1F1F1F;
+    border-radius: 2px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
 .card_balance_summary {
-    font-family: 'bebas_neueregular' !important;
     background: none;
     box-shadow: none;
 }
 
 .summary-one h3 {
-    color: #c63c96;
+    color: #EEA21D;
     font-size: 50px !important;
 }
 
 .summary-three h3 {
-    color: #c63c96;
+    color: #EEA21D;
     font-size: 50px !important;
 }
 
-.withdrawal_alert {
-    color: #c63c96;
-}
-
 .card_withdrawal {
-    background: rgb(198, 60, 150);
-    background: linear-gradient(13deg, rgba(198, 60, 150, 1) 49%, rgba(59, 0, 255, 1) 100%);
-    border-radius: 20px;
+    background: transparent;
+    color: #EEA21D;
 }
 
 .card_withdrawal .withdraw_button {
-    background: violet;
+    background: #ff0030;
     color: white;
-    box-shadow: 0px 0px 5px #fedcff;
-    border-radius: 20px;
+    border-radius: 2px;
     font-weight: bolder;
 }
 
 .card_withdrawal .withdraw_button:hover {
-    background: rgb(255, 196, 255);
-    color: rgb(146, 49, 141);
+    background: #EEA21D !important;
 }
 
 .card_withdrawal label {
@@ -591,24 +725,29 @@ button) {
 }
 
 .referral_summary {
-    background: none;
-    box-shadow: none;
-    font-family: 'bebas_neueregular' !important;
+    text-align: center;
 }
 
 .referral_summary h4 {
     font-size: 50px;
-    color: #c63c96 !important;
+    color: #000000 !important;
 }
 
 .card_ref_active {
-    box-shadow: 0px 0px 10px #e72e94be !important;
-    border: 1px solid #fc86c7;
+    background: #1f1f1f;
 }
 
-.card_ref_inactive {
-    box-shadow: 0px 0px 10px #77184cbe !important;
-    border: 1px solid #c06296;
+.ref-card-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+.ref-card-header .title,
+.ref-count {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .row_transfer_form .card {

@@ -55,6 +55,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
     </style>
 
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+    </style>
+
     <script>
     window.dataLayer = window.dataLayer || [];
 

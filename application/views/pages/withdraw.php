@@ -19,7 +19,7 @@ $this->load->view('templates/header');
                         <div class="alert-icon"><i class="far fa-bell"></i></div>
                         <div class="alert-body">
                             <div class="withdrawal_note">
-                                Withdrawal requests are being processed within <strong>24-36</strong> hours with
+                                Requests are being processed within <strong>24-36</strong> hours with
                                 <strong>5%</strong>
                                 processing fee. Minimum withdrawal is <strong>$20</strong>.
                             </div>
@@ -29,27 +29,26 @@ $this->load->view('templates/header');
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card card_balance_summary">
-                        <div class="summary-one text-center">
-                            <h6>Account Balance</h6>
-                            <h3> <?php echo '$ ' . $account_balance; ?></h3>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="withdraw-box">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card_balance_summary">
+                                    <div class="summary-one text-center">
+                                        <h6>Account Balance</h6>
+                                        <h3> <?php echo '$ ' . $account_balance; ?></h3>
+                                    </div>
 
-                        <div class="summary-three text-center">
-                            <img src="<?php echo base_url();?>assets/img/banking2/038-deadline.png" alt="">
-                            <h6>PENDING WITHDRAWALS:</h6>
-                            <h3> <?php echo '$ ' . $pending_withdrawal; ?></h3>
-                        </div>
-                    </div>
-                </div>
+                                    <!-- <div class="summary-three text-center">
+                                        <img src="<?php echo base_url();?>assets/img/banking2/038-deadline.png" alt="">
+                                        <h6>Pending Withdrawals</h6>
+                                        <h3> <?php echo '$ ' . $pending_withdrawal; ?></h3>
+                                    </div> -->
+                                </div>
+                            </div>
 
-                <div class="col-lg-6">
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card  text-white card_withdrawal">
-                                <div class="card-body">
+                            <div class="col-lg-6">
+                                <div class="card_withdrawal">
                                     <div class="row">
 
                                         <?php echo form_open('withdraw'); ?>
@@ -134,10 +133,6 @@ $this->load->view('templates/header');
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-            <?php $this->load->view('templates/footer'); ?>
+    </section>
+</div>
+<?php $this->load->view('templates/footer'); ?>

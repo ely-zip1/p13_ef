@@ -15,25 +15,17 @@
 
             <div class="row">
 
-                <!-- <div class="col-lg-4">
-                    <div class="card  referral_summary">
-                        <div class="card-body">
-                            <div style="display:inline-block;">
-                                <img src="<?php echo base_url();?>assets/img/banking2/017-salary.png" alt="img" />
-                            </div>
-                            <div style="display:inline-block; vertical-align:middle;">
-                                <h5>Referral Bonus: </h5>
-                                <h4><?php echo $total_bonus; ?></h4>
-                            </div>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="referral_summary">
+                        <h5>Referral Bonus</h5>
+                        <h4><?php echo $total_bonus; ?></h4>
                     </div>
-                </div> -->
+                </div>
 
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="card  referral_summary">
                         <div class="card-body">
                             <div style="display:inline-block;">
-                                <!-- <img src="<?php echo base_url();?>assets/img/banking2/041-bar graph.png" alt="img" /> -->
                             </div>
                             <div style="display:inline-block; vertical-align:middle;">
                                 <h5>Total : </h5>
@@ -47,7 +39,6 @@
                     <div class="card  referral_summary">
                         <div class="card-body">
                             <div style="display:inline-block;">
-                                <!-- <img src="<?php echo base_url();?>assets/img/banking2/035-employee.png" alt="img" /> -->
                             </div>
                             <div style="display:inline-block; vertical-align:middle;">
                                 <h5>Active : </h5>
@@ -55,18 +46,18 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <div class="row deposit-row">
                 <div class="col-12">
-                    <div class="card text-dark card_ref_active">
-                        <div class="card-header">
-                            <h4>ACTIVE</h4>
-                            <!-- ( First Level to Sixth Level Referrals) -->
+                    <div class="card card_ref_active">
+                        <div class="ref-card-header">
+                            <span class="title">Active</span>
+                            <span class="ref-count">Total - <?php echo $active_referrals; ?></span>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped table-dark">
                                 <tbody>
                                     <tr>
                                         <th scope="col">Username</th>
@@ -94,13 +85,12 @@
 
             <div class="row deposit-row">
                 <div class="col-12">
-                    <div class="card text-dark card_ref_inactive">
-                        <div class="card-header">
-                            <h4>INACTIVE</h4>
-                            <!-- ( First Level to Sixth Level Referrals) -->
+                    <div class="card card_ref_active">
+                        <div class="ref-card-header">
+                            <span class="title">Inactive</span>
                         </div>
                         <div class="card-body table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped table-dark">
                                 <tbody>
                                     <tr>
                                         <th scope="col">Username</th>

@@ -39,10 +39,10 @@ $this->load->view('templates/header');
                 <!-- ================================================================================= -->
 
                 <div class="col-sm-4 ">
-                    <div class="card plan-card">
+                    <div class="card plan-card bronze-plan">
                         <!-- <div class="card-top d-flex flex-column justify-content-center text-center"> -->
                         <div class="card-top">
-                            <p class="package-title-1">Bronze Package</p>
+                            <p class="package-title">Bronze Package</p>
                             <div class="package-price">
                                 <p class="package-min-price">$<strong>100</strong></p>
                                 <span class="package-price-caption">MINIMUM DEPOSIT</span>
@@ -50,23 +50,62 @@ $this->load->view('templates/header');
                         </div>
                         <div class="card-mid d-flex flex-column justify-content-center text-center">
                             <span class="package-detail contract">
-                                <h2>180</h2> Contract Days
+                                <h2>180</h2> CONTRACT DAYS
                             </span>
                             <span class="package-detail interest">
-                                <h2>15<sup>%</sup></h2> Daily Interest
-                            </span>
-                            <span class="package-detail">
-                                Referral Bonus
-                            </span>
-                            <span class="package-detail">
-                                Monthly Bonus
-                            </span>
-                            <span class="package-detail">
-                                Cycle Bonus
+                                <h2>1.5<sup>%</sup></h2> DAILY INTEREST
                             </span>
                         </div>
                         <div class="card-bot text-center">
-                            <a href="" class="buy-button">Buy Now</a>
+                            <button class="buy-button" id="package-1">SELECT</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 ">
+                    <div class="card plan-card gold-plan">
+                        <!-- <div class="card-top d-flex flex-column justify-content-center text-center"> -->
+                        <div class="card-top">
+                            <p class="package-title">Gold Package</p>
+                            <div class="package-price">
+                                <p class="package-min-price">$<strong>1,000</strong></p>
+                                <span class="package-price-caption">MINIMUM DEPOSIT</span>
+                            </div>
+                        </div>
+                        <div class="card-mid d-flex flex-column justify-content-center text-center">
+                            <span class="package-detail contract">
+                                <h2>150</h2> CONTRACT DAYS
+                            </span>
+                            <span class="package-detail interest">
+                                <h2>2.0<sup>%</sup></h2> DAILY INTEREST
+                            </span>
+                        </div>
+                        <div class="card-bot text-center">
+                            <button class="buy-button" id="package-2">SELECT</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 ">
+                    <div class="card plan-card vip-plan">
+                        <!-- <div class="card-top d-flex flex-column justify-content-center text-center"> -->
+                        <div class="card-top">
+                            <p class="package-title">VIP Package</p>
+                            <div class="package-price">
+                                <p class="package-min-price">$<strong>10,000</strong></p>
+                                <span class="package-price-caption">MINIMUM DEPOSIT</span>
+                            </div>
+                        </div>
+                        <div class="card-mid d-flex flex-column justify-content-center text-center">
+                            <span class="package-detail contract">
+                                <h2>120</h2> CONTRACT DAYS
+                            </span>
+                            <span class="package-detail interest">
+                                <h2>2.5<sup>%</sup></h2> DAILY INTEREST
+                            </span>
+                        </div>
+                        <div class="card-bot text-center">
+                            <button class="buy-button" id="package-3">SELECT</button>
                         </div>
                     </div>
                 </div>
@@ -82,26 +121,26 @@ $this->load->view('templates/header');
 
                         <div class="col-sm-8 d-flex justify-content-center text-center">
                             <div class="chosen-plan-panel" id="default">
-                                <h1>Please choose a Plan.</h1>
+                                <!-- <h1>Please choose a Plan.</h1> -->
                                 <!-- <span class="chosen-plan">NO PLAN SELECTED</span> -->
                                 <!-- <p>$100 - $999</p> -->
                             </div>
                             <div class="chosen-plan-panel" id="plan-1" hidden>
-                                <h1>Chosen Plan:</h1>
-                                <span class="chosen-plan">BASIC CURE</span>
-                                <p>$90 - $899</p>
+                                <!-- <h1>Chosen Plan:</h1> -->
+                                <span class="chosen-plan">BRONZE PACKAGE</span>
+                                <p>$100</p>
                             </div>
 
                             <div class="chosen-plan-panel" id="plan-2" hidden>
-                                <h1>Chosen Plan:</h1>
-                                <span class="chosen-plan">MINOR CURE</span>
-                                <p>$900 - $8,999</p>
+                                <!-- <h1>Chosen Plan:</h1> -->
+                                <span class="chosen-plan">GOLD PACKAGE</span>
+                                <p>$1,000</p>
                             </div>
 
                             <div class="chosen-plan-panel" id="plan-3" hidden>
-                                <h1>Chosen Plan:</h1>
-                                <span class="chosen-plan">MAJOR CURE</span>
-                                <p>$9,000 - INFINITY</p>
+                                <!-- <h1>Chosen Plan:</h1> -->
+                                <span class="chosen-plan">V.I.P. PACKAGE</span>
+                                <p>$10,000</p>
                             </div>
                         </div>
 
@@ -185,7 +224,7 @@ $this->load->view('templates/header');
                             </div>
                             <button type="submit" class="submit-deposit btn btn-block" name="deposit-submit-button"
                                 id="btnSubmit" <?php if(!$is_verified) echo 'disabled';?>>
-                                CONFIRM
+                                BUY NOW
                             </button>
                             <?php echo form_close(); ?>
                         </div>

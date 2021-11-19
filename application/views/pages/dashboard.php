@@ -139,7 +139,7 @@ $this->load->view('templates/header');
                         </div>
                         <div class="row account-summary-bottom">
                             <div class="col-md-12 d-flex justify-content-center align-items-center">
-                                <a href="<?=base_url();?>withdraw">REQUEST PAYMENT</a>
+                                <a href="<?=base_url();?>withdraw">MAKE A DEPOSIT</a>
                             </div>
                         </div>
                     </div>
