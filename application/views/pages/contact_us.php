@@ -43,8 +43,8 @@
 
                             <div class="form-group">
                                 <label for="message_text">Message: </label>
-                                <textarea class="form-control" id="message_text" name="message_text" rows="1" cols="20"
-                                    required></textarea>
+                                <textarea class="form-control message-text" id="message_text" name="message_text"
+                                    rows="1" cols="20" required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-lg btn-message-submit float-right"

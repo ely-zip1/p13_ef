@@ -20,16 +20,16 @@
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
-                                        Package:
+                                        Package :
                                     </div>
-                                    <div class="col-sm-8 table-receipt-data">
+                                    <div class="col-sm-8 table-receipt-data receipt-selected-plan">
                                         <?php if(isset($deposit_selected_plan) ){echo $deposit_selected_plan;} ?>
                                     </div>
                                 </div>
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
-                                        Amount:
+                                        Amount :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data deposit-amount">
                                         <?php if(isset($deposit_amount) ){echo $deposit_amount;} ?>
@@ -38,7 +38,7 @@
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
-                                        Date:
+                                        Date :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data">
                                         <?php if(isset($deposit_date) ){echo $deposit_date;} ?>
@@ -47,7 +47,7 @@
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
-                                        Payment mode:
+                                        Payment mode :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data">
                                         <?php if(isset($deposit_payment_mode) ){echo $deposit_payment_mode;} ?>
@@ -60,7 +60,7 @@
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
-                                        Send to:
+                                        Send to :
                                     </div>
                                     <?php
                                     if(isset($deposit_payment_mode)){
@@ -68,7 +68,8 @@
 
                                     <div class="col-sm-8 table-receipt-data">
                                         <img src="<?=base_url('assets/img/qr/btc.PNG')?>" alt="bitcoin" width="150px" />
-                                        <br><span class="deposit_address">Account: <strong>
+                                        <br><span class="deposit_address">Account :
+                                            <strong>
                                                 <?=$deposit_address?></strong></span>
                                     </div>
 
@@ -77,7 +78,7 @@
                                     <div class="col-sm-8 table-receipt-data">
                                         <img src="<?=base_url('assets/img/qr/eth.PNG')?>" alt="ethereum"
                                             width="150px" />
-                                        <br><span class="deposit_address">Account: <strong>
+                                        <br><span class="deposit_address">Account : <strong>
                                                 <?=$deposit_address?></strong></span>
                                     </div>
 
@@ -86,7 +87,7 @@
                                     <div class="col-sm-8 table-receipt-data">
                                         <img src="<?=base_url('assets/img/qr/ltc.PNG')?>" alt="litecoin"
                                             width="150px" />
-                                        <br><span class="deposit_address">Account: <strong>
+                                        <br><span class="deposit_address">Account : <strong>
                                                 <?=$deposit_address?></strong></span>
                                     </div>
 
@@ -104,11 +105,11 @@
                                         <!-- <img src="<?=base_url('assets/img/qr/xrp.PNG')?>" alt="xrp" width="150px" /> -->
                                         <br>
                                         <span class="deposit_address">
-                                            Account: <strong><?=$deposit_address?></strong>
+                                            Account : <strong><?=$deposit_address?></strong>
                                         </span>
                                         <br>
                                         <span class="deposit_address">
-                                            Tag: <strong><?=$deposit_tag?></strong>
+                                            Tag : <strong><?=$deposit_tag?></strong>
                                         </span>
                                     </div>
 
@@ -127,7 +128,7 @@
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
-                                        Status:
+                                        Status :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data">
                                         <?php if(isset($deposit_status) ){echo $deposit_status;} ?>
