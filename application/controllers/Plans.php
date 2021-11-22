@@ -42,7 +42,6 @@ class Plans extends CI_Controller
 		$data['plan1'] = strtoupper($packages[0]->package_name);
 		$data['plan2'] = strtoupper($packages[1]->package_name);
 		$data['plan3'] = strtoupper($packages[2]->package_name);
-		$data['plan4'] = strtoupper($packages[3]->package_name);
 
 		$modes_of_payment = $this->Deposit_Options->get_all();
 
@@ -101,9 +100,6 @@ class Plans extends CI_Controller
 			} else if ($_POST['chosen_plan'] == 'plan3') {
 				$deposit_data['package_id'] = '5';
 				$data['deposit_selected_plan'] = strtoupper($packages[2]->package_name);
-			}else if ($_POST['chosen_plan'] == 'plan4') {
-				$deposit_data['package_id'] = '6';
-				$data['deposit_selected_plan'] = strtoupper($packages[2]->package_name);
 			}
 
 			if ($_POST['plan_payment_mode'] == 'mode1') {
@@ -159,28 +155,21 @@ class Plans extends CI_Controller
 	{
 
 		if ($_POST['chosen_plan'] == 'plan1') {
-			if ($_POST['deposit_amount'] >= 90 && $_POST['deposit_amount'] <= 899) {
+			if ($_POST['deposit_amount'] >= 100 && $_POST['deposit_amount'] <= 999) {
 				return true;
 			} else {
 				$this->form_validation->set_message('valid_deposit', 'Deposit Amount does not match your selected plan.');
 				return false;
 			}
 		} else if ($_POST['chosen_plan'] == 'plan2') {
-			if ($_POST['deposit_amount'] >= 900 && $_POST['deposit_amount'] <= 8999) {
+			if ($_POST['deposit_amount'] >= 1000 && $_POST['deposit_amount'] <= 9999) {
 				return true;
 			} else {
 				$this->form_validation->set_message('valid_deposit', 'Deposit Amount does not match your selected plan.');
 				return false;
 			}
 		} else if ($_POST['chosen_plan'] == 'plan3') {
-			if ($_POST['deposit_amount'] >= 9000 && $_POST['deposit_amount'] <= 999999) {
-				return true;
-			} else {
-				$this->form_validation->set_message('valid_deposit', 'Deposit Amount does not match your selected plan.');
-				return false;
-			}
-		}else if ($_POST['chosen_plan'] == 'plan4') {
-			if ($_POST['deposit_amount'] >= 100000 && $_POST['deposit_amount'] <= 999999) {
+			if ($_POST['deposit_amount'] >= 10000 && $_POST['deposit_amount'] <= 999999999) {
 				return true;
 			} else {
 				$this->form_validation->set_message('valid_deposit', 'Deposit Amount does not match your selected plan.');
@@ -204,8 +193,8 @@ class Plans extends CI_Controller
 			$account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent;
 
 			if ($_POST['chosen_plan'] == 'plan1') {
-				if ($_POST['deposit_amount'] >= 90 && $_POST['deposit_amount'] <= 899) {
-					if ($account_balance >= 90 && $account_balance >= $_POST['deposit_amount']) {
+				if ($_POST['deposit_amount'] >= 100 && $_POST['deposit_amount'] <= 999) {
+					if ($account_balance >= 100 && $account_balance >= $_POST['deposit_amount']) {
 						return true;
 					} else {
 						$this->form_validation->set_message('validate_reinvestment', 'Insufficient Account Balance.');
@@ -216,8 +205,8 @@ class Plans extends CI_Controller
 					return false;
 				}
 			} else if ($_POST['chosen_plan'] == 'plan2') {
-				if ($_POST['deposit_amount'] >= 900 && $_POST['deposit_amount'] <= 8999) {
-					if ($account_balance >= 900 && $account_balance >= $_POST['deposit_amount']) {
+				if ($_POST['deposit_amount'] >= 1000 && $_POST['deposit_amount'] <= 9999) {
+					if ($account_balance >= 1000 && $account_balance >= $_POST['deposit_amount']) {
 						return true;
 					} else {
 						$this->form_validation->set_message('validate_reinvestment', 'Insufficient Account Balance.');
@@ -228,8 +217,8 @@ class Plans extends CI_Controller
 					return false;
 				}
 			} else if ($_POST['chosen_plan'] == 'plan3') {
-				if ($_POST['deposit_amount'] >= 9000 && $_POST['deposit_amount'] <= 999999) {
-					if ($account_balance >= 9000 && $account_balance >= $_POST['deposit_amount']) {
+				if ($_POST['deposit_amount'] >= 10000 && $_POST['deposit_amount'] <= 999999999) {
+					if ($account_balance >= 10000 && $account_balance >= $_POST['deposit_amount']) {
 						return true;
 					} else {
 						$this->form_validation->set_message('validate_reinvestment', 'Insufficient Account Balance.');
@@ -300,7 +289,7 @@ class Plans extends CI_Controller
 			if ($this->Members->get_referrer($level_1->id)->referred_by != 'root') {
 				$level_2 = $this->Members->get_referrer($level_1->id);
 				// print_r($level_2);
-				$bonus_2 = $deposit->amount * 0.03;
+				$bonus_2 = $deposit->amount * 0.035;
 				$bonus_2_data = array(
 					'deposit_id' => $deposit->id,
 					'referrer_id' => $level_2->id,
@@ -326,7 +315,7 @@ class Plans extends CI_Controller
 				if ($this->Members->get_referrer($level_2->id)->referred_by!= 'root') {
 					$level_3 = $this->Members->get_referrer($level_2->id);
 					// print_r($level_3);
-					$bonus_3 = $deposit->amount * 0.02;
+					$bonus_3 = $deposit->amount * 0.025;
 					$bonus_3_data = array(
 						'deposit_id' => $deposit->id,
 						'referrer_id' => $level_3->id,
@@ -353,7 +342,7 @@ class Plans extends CI_Controller
 					if ($this->Members->get_referrer($level_3->id)->referred_by != 'root') {
 						$level_4 = $this->Members->get_referrer($level_3->id);
 						// print_r($level_3);
-						$bonus_4 = $deposit->amount * 0.01;
+						$bonus_4 = $deposit->amount * 0.015;
 						$bonus_4_data = array(
 							'deposit_id' => $deposit->id,
 							'referrer_id' => $level_4->id,

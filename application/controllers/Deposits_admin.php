@@ -100,7 +100,7 @@ class Deposits_admin extends CI_Controller
       if ($level_1->referred_by != 'root') {
         $level_2 = $this->Members->get_member($level_1->referred_by);
         // print_r($level_2);
-        $bonus_2 = $deposit->amount * 0.03;
+        $bonus_2 = $deposit->amount * 0.035;
         $bonus_2_data = array(
           'deposit_id' => $deposit->id,
           'referrer_id' => $level_2->id,
@@ -127,7 +127,7 @@ class Deposits_admin extends CI_Controller
         if ($level_2->referred_by != 'root') {
           $level_3 = $this->Members->get_member($level_2->referred_by);
           // print_r($level_3);
-          $bonus_3 = $deposit->amount * 0.02;
+          $bonus_3 = $deposit->amount * 0.025;
           $bonus_3_data = array(
             'deposit_id' => $deposit->id,
             'referrer_id' => $level_3->id,
@@ -154,7 +154,7 @@ class Deposits_admin extends CI_Controller
           if ($level_3->referred_by != 'root') {
             $level_4 = $this->Members->get_member($level_3->referred_by);
             // print_r($level_3);
-            $bonus_4 = $deposit->amount * 0.01;
+            $bonus_4 = $deposit->amount * 0.015;
             $bonus_4_data = array(
               'deposit_id' => $deposit->id,
               'referrer_id' => $level_4->id,
