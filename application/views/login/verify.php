@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-12 text-center">
                             <div class="login-brand">
                                 <a href="<?= base_url();?>">
-                                    <img src="<?= base_url();?>assets/img/gracure-logo.svg" alt="" width="300px">
+                                    <img src="<?= base_url();?>assets/img/EF_LOGO_COMPLETE.svg" alt="" width="300px">
                                 </a>
                             </div>
                         </div>
@@ -26,9 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <div class="row">
                             <div class="col-12 text-center">
-                                <h3 class="login-title">Verification</h3>
-                                <p <?php if(isset($status)){if($status)echo 'hidden';} ?>>
-                                    Please provide the verification code sent to your e-mail.
+                                <h3 class="login-title">VERIFICATION</h3>
+                                <p <?php if(isset($status)){if($status)echo 'hidden';} ?> class="text-white">
+                                    Please provide the verification code sent to your email.
                                 </p>
 
                                 <?php if(isset($status)){
@@ -51,8 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
 
                         <?php echo form_open('verification'); ?>
-                        <div class="form-group" <?php if(isset($status)){if($status)echo 'hidden';} ?>>
-                            <label for="v_code">Code</label>
+                        <div class="form-group text-white" <?php if(isset($status)){if($status)echo 'hidden';} ?>>
+                            <label for="v_code" class="text-white">Code</label>
                             <input id="v_code" type="text"
                                 class="form-control <?php if(strlen(form_error('v_code')) > 0){echo "is-invalid";} ?>"
                                 name="v_code" tabindex="1" autofocus value="<?= set_value('v_code','',true)?>">

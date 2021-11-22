@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2021 at 01:47 PM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.3.24
+-- Generation Time: Nov 22, 2021 at 05:33 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `p12_gracure`
+-- Database: `u246433977_gracure`
 --
 
 -- --------------------------------------------------------
@@ -54,19 +55,18 @@ CREATE TABLE `td_banks` (
   `account_number` varchar(255) NOT NULL,
   `member_id` int(11) NOT NULL,
   `country` varchar(30) NOT NULL,
-  `swift_code` varchar(20) NOT NULL
+  `swift_code` varchar(20) NOT NULL,
+  `bank_code` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `td_banks`
 --
 
-INSERT INTO `td_banks` (`id`, `bank_name`, `account_name`, `account_number`, `member_id`, `country`, `swift_code`) VALUES
-(52, '', '', '', 56, '', ''),
-(87, '', '', '', 92, '', ''),
-(88, '', '', '', 93, '', ''),
-(89, '', '', '', 94, '', ''),
-(90, '', '', '', 95, '', '');
+INSERT INTO `td_banks` (`id`, `bank_name`, `account_name`, `account_number`, `member_id`, `country`, `swift_code`, `bank_code`) VALUES
+(52, '', '', '', 56, '', '', ''),
+(108, '', '', '', 113, '', '', ''),
+(109, '', '', '', 114, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -98,14 +98,6 @@ CREATE TABLE `td_deposits` (
   `is_expired` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `td_deposits`
---
-
-INSERT INTO `td_deposits` (`id`, `member_id`, `date`, `date_approved`, `amount`, `deposit_options_id`, `package_id`, `is_pending`, `is_expired`) VALUES
-(153, 56, '2021-08-29 10:39:22', '2021-08-29 10:39:39', '9000', 12, 5, 0, 0),
-(154, 56, '2021-08-29 11:04:20', '2021-08-29 11:06:30', '900', 15, 2, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -125,13 +117,14 @@ CREATE TABLE `td_deposit_options` (
 --
 
 INSERT INTO `td_deposit_options` (`id`, `name`, `account`, `tag`, `rule`) VALUES
-(1, 'Bitcoin', '3KYEUooyNkPpCAEmGuQEGNyH7L9ERaaYpp', '', ''),
-(3, 'Ethereum', '0x3736a1993bda629dc184c42bfb2d69544ef1bc83\r\n', '', ''),
+(1, 'Bitcoin', 'bc1qqr2ertw7uuxedwmz0szh6tcnwe9sk9rl7rkr99', '', ''),
+(3, 'Ethereum', '0xe1903ff5b47b36e26782000d6564debe9cb05ba6\r\n', '', ''),
 (11, 'Account Balance', '', '', ''),
-(12, 'XRP', 'rnqZnvzoJjdg7n1P9pmumJ7FQ5wxNH3gYC', '60465260', ''),
-(13, 'Tron', 'TBuq2x8peLp3ujNZqVnxCAuceui8oV5AyW', '', ''),
-(14, 'Litecoin', 'MHm2oeH2kVj4zVvKu622bDRF42joaBsEj8', '', ''),
-(15, 'Doge Coin', 'D9DufzmNSDCv6nw2j4qmBE8xTdbGyN52Vd', '', '');
+(12, 'XRP', 'rnqZnvzoJjdg7n1P9pmumJ7FQ5wxNH3gYC', '43080878', ''),
+(13, 'Tron', 'TAKjEripXh7baVyQkb2MWF8EzWv2GBdDiq', '', ''),
+(14, 'Litecoin', 'MJ1i6piByrYigQb4uF9vfh9umu8UQhziCS', '', ''),
+(15, 'Doge Coin', 'DALQKDBQ4UKC6XB4TB3qLKyjgBcB6rx8VZ', '', ''),
+(16, 'Bitcoin Cash', 'bitcoincash:qprf5h3y4jwnlug2g9kh9v8748euxr0w3ywznj6y9z', '', '');
 
 -- --------------------------------------------------------
 
@@ -175,6 +168,20 @@ CREATE TABLE `td_gcash` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `td_group_sales`
+--
+
+CREATE TABLE `td_group_sales` (
+  `id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `month` int(11) NOT NULL,
+  `year` int(11) NOT NULL DEFAULT 2021,
+  `bonus` float NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `td_lifestyle_bonus`
 --
 
@@ -206,21 +213,20 @@ CREATE TABLE `td_members` (
   `country` varchar(200) NOT NULL,
   `verified` tinyint(1) NOT NULL,
   `verification_code` varchar(10) NOT NULL,
-  `referred_by` tinytext NOT NULL
+  `referred_by` tinytext NOT NULL,
+  `auth_code` varchar(5) NOT NULL,
+  `last_access` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `td_members`
 --
 
-INSERT INTO `td_members` (`id`, `full_name`, `username`, `email_address`, `date`, `password`, `account_type_id`, `contact_number`, `image_name`, `image_orientation`, `birthdate`, `country`, `verified`, `verification_code`, `referred_by`) VALUES
-(6, 'root root', 'root', 'root@g.c', '2020-10-18 00:00:00', '123456', 3, '', '', '', NULL, '', 1, '', ''),
-(56, 'Juan Uno', 'uno', 'eha.z@gmail.com', '2021-02-27 11:08:53', '$2y$11$.Kii0/cgluUlm.utWFzPbuC8zZzh3gL3phnrr2W8TSNRXTzRY0.5G', 2, '', '', '', NULL, '', 1, 'Rz8bh4p', 'root'),
-(62, 'first admin', 'fsadmin', 'fsadmin@gmail.com', '2021-06-06 22:35:12', '$2y$11$HtdsbVFLyoVcDRlaWCquz.mnbH7Knl.8DEJHucTb2OuGhX.iQYm.i', 1, '', '', '', NULL, '', 0, '5FEftzx', ''),
-(92, 'dos dos', 'dos', 'g.lapiz@gmail.com', '2021-08-29 14:33:20', '$2y$11$E0K7MoH7e.SMCFrMkg7o3OhXpeTT6GPieXrJwBhJ/E0LPExNyk9dq', 2, '', '', '', NULL, '', 0, 'cnuj8UT', 'uno'),
-(93, 'tres tres', 'tres', 'eliz@gmail.com', '2021-08-29 14:48:26', '$2y$11$1rrUuCcXoitIjoiTy24bOOse2qCdGTMHHvP8vioIT/XInvAHk2ngG', 2, '', '', '', NULL, '', 0, 'f3dBhvk', 'dos'),
-(94, 'four four', 'four', 'elis@gmail.com', '2021-08-29 15:05:41', '$2y$11$dCnmD6cD/FohY0cZ9Up3EOuWJfD87w7TBHRRO.RRDJq870IaWIwt2', 2, '', '', '', NULL, '', 0, 'duBw6xb', 'uno'),
-(95, 'five', 'five', 'elisha.lapiz@gmail.com', '2021-08-29 16:22:47', '$2y$11$HcIn0HCokOGwrH51Ymnp/.470ywR7FpB5tj4fEX/xcymWKnXHDaNq', 2, '', '', '', NULL, '', 1, 'o4qfTjJ', 'uno');
+INSERT INTO `td_members` (`id`, `full_name`, `username`, `email_address`, `date`, `password`, `account_type_id`, `contact_number`, `image_name`, `image_orientation`, `birthdate`, `country`, `verified`, `verification_code`, `referred_by`, `auth_code`, `last_access`) VALUES
+(6, 'root root', 'root', 'root@g.c', '2020-10-18 00:00:00', '123456', 3, '', '', '', NULL, '', 1, 'GRAC', '', '', '2021-11-15 14:24:06'),
+(56, 'Juan Uno', 'uno', 'gracure21@gmail.com', '2021-02-27 11:08:53', '$2y$11$Sxd4ZZNlgVFLDPpwW7HVHuxk2ssbchLuO9YwDcWpdRVZqCyQsrzYO', 2, '', '', '', NULL, '', 1, 'GRAC', 'root', '70513', '2021-11-15 14:24:06'),
+(113, 'equifinance admin', 'efadmin', 'equifinance01@gmail.com', '2021-11-22 16:04:03', '$2y$11$9vhtRI9d1jV3C9ycuDXEael1Wg0czI6rz.Ho4pn5f2lp4AZWCVGVy', 1, '', '', '', NULL, '', 1, 'GRAC', 'uno', '', '2021-11-22 16:04:03'),
+(114, 'dos dos', 'dos', 'dos@dos.com', '2021-11-22 22:46:24', '$2y$11$.YqSNVnzyJDEBBfLeZLAkuZwGvcVGYxuzivtb4IZlMUeXYsVhq38i', 2, '', '', '', NULL, '', 1, 'GRAC', 'uno', '60721', '2021-11-22 22:46:24');
 
 -- --------------------------------------------------------
 
@@ -234,13 +240,6 @@ CREATE TABLE `td_messages` (
   `member_id` int(11) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `td_messages`
---
-
-INSERT INTO `td_messages` (`id`, `message`, `member_id`, `date`) VALUES
-(7, 'Test', 56, '2021-06-08 03:33:41');
 
 -- --------------------------------------------------------
 
@@ -263,10 +262,9 @@ CREATE TABLE `td_packages` (
 --
 
 INSERT INTO `td_packages` (`id`, `package_name`, `daily_rate`, `minimum_amount`, `maximum_amount`, `duration_in_days`, `expected_profit`) VALUES
-(1, 'BASIC CURE', 1.5, 90, 899, 200, NULL),
-(2, 'MINOR CURE', 1.8, 900, 899, 180, NULL),
-(5, 'MAJOR CURE', 2, 9000, 999999, 150, NULL),
-(6, 'VIP:REBUILD', 2.5, 100000, 1000000, 150, NULL);
+(1, 'BRONZE PACKAGE', 1.5, 100, 999.99, 180, NULL),
+(2, 'GOLD PACKAGE', 2, 1000, 9999.99, 150, NULL),
+(5, 'VIP PACKAGE', 2.5, 10000, 100000000000, 120, NULL);
 
 -- --------------------------------------------------------
 
@@ -2769,11 +2767,7 @@ CREATE TABLE `td_withdrawal_mode` (
 --
 
 INSERT INTO `td_withdrawal_mode` (`id`, `member_id`, `bitcoin`, `ethereum`, `doge_coin`, `litecoin`, `xrp_account`, `xrp_tag`, `trx`, `paypal`) VALUES
-(52, 56, 'sadfasdfasdfasdf', '', '', '', '', '', 'asdfasdfasdf', 'hjgksjhdljaskfaskldf'),
-(87, 92, '', '', '', '', '', '', '', ''),
-(88, 93, '', '', '', '', '', '', '', ''),
-(89, 94, '', '', '', '', '', '', '', ''),
-(90, 95, '', '', '', '', '', '', '', '');
+(109, 114, '', '', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -2832,6 +2826,12 @@ ALTER TABLE `td_fund_transfer`
 -- Indexes for table `td_gcash`
 --
 ALTER TABLE `td_gcash`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `td_group_sales`
+--
+ALTER TABLE `td_group_sales`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2916,7 +2916,7 @@ ALTER TABLE `td_account_type`
 -- AUTO_INCREMENT for table `td_banks`
 --
 ALTER TABLE `td_banks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `td_btc`
@@ -2928,25 +2928,25 @@ ALTER TABLE `td_btc`
 -- AUTO_INCREMENT for table `td_deposits`
 --
 ALTER TABLE `td_deposits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
 
 --
 -- AUTO_INCREMENT for table `td_deposit_options`
 --
 ALTER TABLE `td_deposit_options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `td_fund_bonus`
 --
 ALTER TABLE `td_fund_bonus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `td_fund_transfer`
 --
 ALTER TABLE `td_fund_transfer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `td_gcash`
@@ -2955,22 +2955,28 @@ ALTER TABLE `td_gcash`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `td_group_sales`
+--
+ALTER TABLE `td_group_sales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `td_lifestyle_bonus`
 --
 ALTER TABLE `td_lifestyle_bonus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234;
 
 --
 -- AUTO_INCREMENT for table `td_members`
 --
 ALTER TABLE `td_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `td_messages`
 --
 ALTER TABLE `td_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `td_packages`
@@ -2988,7 +2994,7 @@ ALTER TABLE `td_referrals`
 -- AUTO_INCREMENT for table `td_referral_bonus`
 --
 ALTER TABLE `td_referral_bonus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=348;
 
 --
 -- AUTO_INCREMENT for table `td_referral_codes`
@@ -3000,13 +3006,13 @@ ALTER TABLE `td_referral_codes`
 -- AUTO_INCREMENT for table `td_withdrawals`
 --
 ALTER TABLE `td_withdrawals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `td_withdrawal_mode`
 --
 ALTER TABLE `td_withdrawal_mode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- Constraints for dumped tables
