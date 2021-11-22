@@ -82,7 +82,7 @@ body {
 }
 
 .navbar-bg-admin {
-    background: #c63c96;
+    background: #1b1b1b;
 }
 
 .section_header_admin {
@@ -98,7 +98,7 @@ body {
 }
 
 .sidebar-brand-sm a {
-    color: #c63c96 !important;
+    color: #ff0030 !important;
 }
 
 .navbar-bg {
