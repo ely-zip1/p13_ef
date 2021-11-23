@@ -24,7 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://localhost/p13_ef/';
-$config['base_url'] = 'http://office-equifinance.uk/';
+$config['base_url'] = 'http://member-equifinance.uk/';
+
 
 /*
 |--------------------------------------------------------------------------

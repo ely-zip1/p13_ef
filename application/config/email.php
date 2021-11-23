@@ -1,8 +1,8 @@
 <?php
 
-$config['protocol'] = 'smtp';    
+$config['protocol'] = 'smtp';
 $config['smtp_host'] = 'smtp.hostinger.com';
-$config['smtp_user'] = 'client-support@office-equifinance.uk';
+$config['smtp_user'] = 'support@member-equifinance.uk';
 $config['smtp_pass'] = 'EfSupport1!!';
 $config['smtp_port'] = 465;
 
