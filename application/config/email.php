@@ -1,9 +1,9 @@
 <?php
 
 $config['protocol'] = 'smtp';    
-$config['smtp_host'] = 'smtp.googlemail.com';
-$config['smtp_user'] = 'eqfinance01@gmail.com';
-$config['smtp_pass'] = 'EqFinance1!!';
+$config['smtp_host'] = 'smtp.hostinger.com';
+$config['smtp_user'] = 'client-support@office-equifinance.uk';
+$config['smtp_pass'] = 'EfSupport1!!';
 $config['smtp_port'] = 465;
 
 $config['charset'] = 'iso-8859-1';
