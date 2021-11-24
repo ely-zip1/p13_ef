@@ -36,7 +36,7 @@
         font-size: 40px;
         /* background: #FF5B91; */
         padding: 10px;
-        color: #FF5B91;
+        color: #FF0030;
         text-align: center;
     }
     </style>
@@ -45,11 +45,11 @@
 <body>
     <div class="container">
         <div class="content">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-12">
                     <img src="<?=base_url()?>assets/img/authentication-email-artwork.png" alt="" class="artwork">
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p class="par_1">Hi <?=$member_username?>,</p>

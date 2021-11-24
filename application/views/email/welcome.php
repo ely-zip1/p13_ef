@@ -17,7 +17,7 @@
     .content {
         width: 500px;
         margin: auto;
-        background: #c63c96;
+        /* background: #c63c96; */
         padding-bottom: 20px;
     }
 
@@ -79,9 +79,9 @@
 <body>
     <div class="container">
         <div class="content">
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <img src="<?=base_url()?>assets/img/email-welcome-header-small.png" alt="" class="artwork">
-            </div>
+            </div> -->
             <div class="content-row">
                 <div class="col-lg-12">
                     <p class="welcome">WELCOME</p>

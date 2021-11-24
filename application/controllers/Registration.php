@@ -57,7 +57,7 @@ class Registration extends CI_Controller{
                     ];
                   $password = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
 
-                  $verification_code = "GRAC";
+                  $verification_code = "EF-MEMBER";
 
                   $user_data = array(
                       'full_name' => $_POST['fullname'],

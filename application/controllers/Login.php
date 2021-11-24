@@ -128,7 +128,7 @@ class Login  extends CI_Controller
 		$userdata['member_username'] = $username;
 		$userdata['auth_code'] = $code;
 
-        $this->email->from('info@gracureinvestor.com', 'GracureInvestor')
+        $this->email->from('support@member-equifinance.com', 'Equifinance')
             ->to($email)
             ->subject('Login Authentication')
 						->message($this->load->view('email/authentication', $userdata, true));

@@ -35,13 +35,13 @@
                     <p>Dear <strong><?= $name?></strong>,</p>
 
                     <p>This is a courtesy message to let you know
-                        that your GracureInvestor .com password has been
+                        that your Member-Equifinance password has been
                         successfuly changed. No response is needed.
                     </p>
 
                     <p>Thank you,
                         <br>
-                        GracureInvestor Team
+                        Equifinance
                     </p>
                 </div>
             </div>
