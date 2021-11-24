@@ -53,14 +53,14 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p class="par_1">Hi <?=$member_username?>,</p>
-                    <p class="par_2">Here is your unique login code to access your GracureInvestor account:
+                    <p class="par_2">Here is your unique login code to access your Member-Equifinance account:
                     </p>
                     <p>
                     <h3 class="v_code"><?=$auth_code?></h3>
                     </p>
                     <p class="par_3">We have implemented this as an extra layer of security to your account, something
                         we value
-                        extremely high here on Gracure.</p>
+                        extremely high here on Equifinance.</p>
                 </div>
             </div>
         </div>
