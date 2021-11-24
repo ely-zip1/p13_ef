@@ -142,7 +142,7 @@ class Registration extends CI_Controller{
 
 		$this->load->library('email');
 
-        $this->email->from('info@gracureinvestor.com', 'GracureInvestor')
+        $this->email->from('support@member-equifinance.com', 'Member-Equifinance')
             ->to($email)
             ->subject('Welcome')
 						->message($this->load->view('email/welcome',$email_data, true));
