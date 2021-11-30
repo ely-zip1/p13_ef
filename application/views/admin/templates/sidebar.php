@@ -53,6 +53,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         class="far fa-envelope"></i><span>Messages</span></a>
             </li>
 
+            <li class="dropdown <?php echo $this->uri->segment(1) == 'admin_loan' ? 'active' : ''; ?>"> <a
+                    href="<?= base_url();?>admin_loan" class="nav-link"><i class="far fa-envelope"></i><span>Advanced
+                        Withdrawals</span></a>
+            </li>
+
         </ul>
     </aside>
 </div>

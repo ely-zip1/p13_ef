@@ -60,15 +60,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'your_referrals' ? 'active' : ''; ?>">
                 <a href="<?=base_url();?>your_referrals" class="nav-link">
-                    <img src="https://img.icons8.com/color/48/000000/conference.png" />
-                    <span>Referral</span>
+                    <img src="https://img.icons8.com/color/50/000000/genealogy.png" />
+                    <span>Genealogy Tree</span>
                 </a>
 
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'fund_transfer' ? 'active' : ''; ?>">
                 <a href="<?=base_url();?>fund_transfer" class="nav-link">
-                    <img src="https://img.icons8.com/color/48/000000/exchange.png" /><span>Fund
+                    <img src="https://img.icons8.com/color/48/000000/exchange.png" /><span>Money
                         Transfer</span></a>
 
             </li>
@@ -80,10 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'cycle_bonus' ? 'active' : ''; ?>">
-                <a href="<?=base_url();?>cycle_bonus" class="nav-link">
-                    <img src="https://img.icons8.com/color-glass/48/000000/gift.png" /><span>Cycle
-                        Bonus</span></a>
+            <li class="dropdown <?php echo $this->uri->segment(1) == 'Advanced_withdrawal' ? 'active' : ''; ?>">
+                <a href="<?=base_url();?>Advanced_withdrawal" class="nav-link">
+                    <img src="https://img.icons8.com/color/50/000000/request-money.png" />
+                    <span>Advanced Withdrawal</span></a>
 
             </li>
 
@@ -105,8 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="<?=base_url();?>contact_us" class="nav-link">
                     <!-- <img src="https://img.icons8.com/color/48/000000/online-support.png" /> -->
                     <img src="https://img.icons8.com/color/48/000000/headset.png" />
-                    <span>Message
-                        Support</span>
+                    <span>Help Center</span>
                 </a>
 
             </li>

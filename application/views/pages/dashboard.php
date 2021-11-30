@@ -18,7 +18,7 @@ $this->load->view('templates/header');
 
         <div class="row text-center">
             <div class="col-lg-12">
-                <div class="alert alert-warning" role="alert">
+                <div class="alert alert-danger" role="alert">
                     Please <a href="<?=base_url();?>verification" class="alert-link">verify your account</a> before
                     making any transactions.
                 </div>
@@ -47,60 +47,7 @@ $this->load->view('templates/header');
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="user-details">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="row detail-cell">
-                                    <div class="col-sm-3">
-                                        <div class="img-container">
-                                            <img src="https://img.icons8.com/ios/100/000000/gender-neutral-user.png" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-auto mt-2">
-                                        <span class="user-detail-label">Username:</span><br>
-                                        <span class="user-detail-value"><?= $this->session->username;?></span>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-md-4">
-                                <div class="row detail-cell">
-                                    <div class="col-sm-3">
-                                        <div class="img-container">
-                                            <img src="https://img.icons8.com/ios/100/000000/edit-calendar.png" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-auto mt-2">
-                                        <span class="user-detail-label">Registration Date:</span><br>
-                                        <span
-                                            class="user-detail-value"><?=date('M-j-Y', strtotime($this->session->date_registered) ); ?></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="row detail-cell">
-                                    <div class="col-sm-3">
-                                        <div class="img-container">
-                                            <img src="https://img.icons8.com/ios/100/000000/property-with-timer.png" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-auto mt-2">
-                                        <span class="user-detail-label">Last Access:</span><br>
-
-                                        <span
-                                            class="user-detail-value"><?=date('M-j-y h:i A', strtotime($this->session->last_access) ); ?></span>
-                                        <!-- <span class="user-detail-value"><?= $this->session->last_access;?></span> -->
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- #region dashboard row 2 -->
             <div class="row">
@@ -111,7 +58,7 @@ $this->load->view('templates/header');
                                 <img src="<?= base_url();?>assets/img/banknotes.png" />
                             </div>
                             <div class="col-md-8">
-                                <span class="summary-label">ACCOUNT BALANCE</span><br>
+                                <span class="summary-label">E-MONEY</span><br>
                                 <span class="summary-value">
                                     $ <?php if(isset($account_balance)) echo $account_balance;?>
                                 </span>
@@ -132,7 +79,7 @@ $this->load->view('templates/header');
                                 <img src="<?= base_url();?>assets/img/cash-receipt.png" />
                             </div>
                             <div class="col-md-8">
-                                <span class="summary-label">EARNED TOTAL</span><br>
+                                <span class="summary-label">ACTIVATION FUNDS</span><br>
                                 <span class="summary-value">
                                     <?php if(isset($total_growth)) echo $total_growth;?>
                                 </span>
@@ -140,7 +87,7 @@ $this->load->view('templates/header');
                         </div>
                         <div class="row account-summary-bottom">
                             <div class="col-md-12 d-flex justify-content-center align-items-center">
-                                <a href="<?=base_url();?>withdraw">MAKE A DEPOSIT</a>
+                                <a href="<?=base_url();?>withdraw">BUY PACKAGE</a>
                             </div>
                         </div>
                     </div>
@@ -219,6 +166,60 @@ $this->load->view('templates/header');
                 </div>
             </div>
             <!-- #endregion -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-details">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row detail-cell">
+                                    <div class="col-sm-3">
+                                        <div class="img-container">
+                                            <img src="https://img.icons8.com/ios/100/000000/gender-neutral-user.png" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-auto mt-2">
+                                        <span class="user-detail-label">Username:</span><br>
+                                        <span class="user-detail-value"><?= $this->session->username;?></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="row detail-cell">
+                                    <div class="col-sm-3">
+                                        <div class="img-container">
+                                            <img src="https://img.icons8.com/ios/100/000000/edit-calendar.png" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-auto mt-2">
+                                        <span class="user-detail-label">Registration Date:</span><br>
+                                        <span
+                                            class="user-detail-value"><?=date('M-j-Y', strtotime($this->session->date_registered) ); ?></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="row detail-cell">
+                                    <div class="col-sm-3">
+                                        <div class="img-container">
+                                            <img src="https://img.icons8.com/ios/100/000000/property-with-timer.png" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-auto mt-2">
+                                        <span class="user-detail-label">Last Access:</span><br>
+
+                                        <span
+                                            class="user-detail-value"><?=date('M-j-y h:i A', strtotime($this->session->last_access) ); ?></span>
+                                        <!-- <span class="user-detail-value"><?= $this->session->last_access;?></span> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </div>

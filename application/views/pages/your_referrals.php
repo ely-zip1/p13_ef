@@ -10,14 +10,14 @@
         <div class="section-body">
 
             <div class="section-header section-header-custom">
-                <h1>REFERRALS</h1>
+                <h1>Genealogy Tree</h1>
             </div>
 
             <div class="row">
 
                 <div class="col-lg-12">
                     <div class="referral_summary">
-                        <h5>Referral Bonus</h5>
+                        <h5>Bonus</h5>
                         <h4><?php echo $total_bonus; ?></h4>
                     </div>
                 </div>

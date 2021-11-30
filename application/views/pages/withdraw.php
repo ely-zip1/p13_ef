@@ -35,7 +35,7 @@ $this->load->view('templates/header');
                             <div class="col-lg-6">
                                 <div class="card_balance_summary">
                                     <div class="summary-one text-center">
-                                        <h6>Account Balance</h6>
+                                        <h6>E-Money</h6>
                                         <h3> <?php echo '$ ' . $account_balance; ?></h3>
                                     </div>
 
