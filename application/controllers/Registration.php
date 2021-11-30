@@ -111,25 +111,25 @@ class Registration extends CI_Controller{
       		}
     }
 
-    function send_verification_email($email, $verification_code){
+    // function send_verification_email($email, $verification_code){
 
-        ini_set( 'display_errors', 1 );
-        error_reporting( E_ALL );
-				$data['email'] = $email;
+    //     ini_set( 'display_errors', 1 );
+    //     error_reporting( E_ALL );
+		// 		$data['email'] = $email;
 
-				$this->load->library('email');
+		// 		$this->load->library('email');
 
-        $this->email->from('info@gracureinvestor.com', 'GracureInvestor')
-            ->to($data['email'])
-            ->subject('Email Verification')
-						->message('<center><p>Thank you for registering! </p><p>Please use this code to verify your account. <br> <strong>' . $verification_code . '</strong></p></center>');
+    //     $this->email->from('info@gracureinvestor.com', 'GracureInvestor')
+    //         ->to($data['email'])
+    //         ->subject('Email Verification')
+		// 				->message('<center><p>Thank you for registering! </p><p>Please use this code to verify your account. <br> <strong>' . $verification_code . '</strong></p></center>');
 
-        if($this->email->send()){
-					return true;
-				}else{
-					return false;
-				}
-    }
+    //     if($this->email->send()){
+		// 			return true;
+		// 		}else{
+		// 			return false;
+		// 		}
+    // }
 
     function send_welcome_email($email, $fullname, $verification_code){
       ini_set( 'display_errors', 1 );
