@@ -44,10 +44,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         class="fas fa-exchange-alt"></i><span>Transferred Funds</span></a>
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'group_sales_admin' ? 'active' : ''; ?>">
+            <!-- <li class="dropdown <?php echo $this->uri->segment(1) == 'group_sales_admin' ? 'active' : ''; ?>">
                 <a href="<?= base_url(); ?>group_sales_admin" class="nav-link"><i class="fas fa-award"></i><span>Monthly
                         Bonus</span></a>
-            </li>
+            </li> -->
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'messages_admin' ? 'active' : ''; ?>"> <a
                     href="<?= base_url(); ?>messages_admin" class="nav-link"><i
