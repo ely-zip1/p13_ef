@@ -63,7 +63,7 @@ class Activation_fund_admin extends CI_Controller
 
         // print_r($member_list[1]->id);
 
-        print_r($this->db->last_query());
+        // print_r($this->db->last_query());
         // $total_activation_fund = $this->Activation_fund_model->total_fund_per_member($member_list[1]->id);
 
 
