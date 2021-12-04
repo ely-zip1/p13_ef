@@ -48,9 +48,9 @@ class Account_settings extends CI_Controller
 		// $data['bank_country'] = $bank->country;
 		// $data['country_placeholder'] = '<option value="'.$bank->country.'">'.$bank->country.'</option>';
 		$withdrawal_account = $this->Withdrawal_Mode_model->get_per_member($member_data->id);
-		echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+		// echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 		// print_r($member_data);
-		print_r($withdrawal_account);
+		// print_r($withdrawal_account);
 
 		$data['bitcoin_account'] = $withdrawal_account->bitcoin;
 		$data['ethereum_account'] = $withdrawal_account->ethereum;
