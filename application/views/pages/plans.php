@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('templates/header');
 ?>
 <!-- Main Content -->
@@ -19,20 +19,21 @@ $this->load->view('templates/header');
                     </div>
                 </div>
             </div>
-            <?php if(isset($is_verified)){
-                if($is_verified == false){ ?>
+            <?php if (isset($is_verified)) {
+                if ($is_verified == false) { ?>
 
             <div class="row text-center">
                 <div class="col-lg-12">
                     <div class="alert alert-warning" role="alert">
-                        Please <a href="<?=base_url();?>verification" class="alert-link">verify your account</a> before
+                        Please <a href="<?= base_url(); ?>verification" class="alert-link">verify your account</a>
+                        before
                         making any transactions.
                     </div>
                 </div>
             </div>
 
             <?php }
-            }?>
+            } ?>
 
             <div class="row row-plans ">
 
@@ -175,17 +176,17 @@ $this->load->view('templates/header');
                                     <select class="form-control" name="chosen_plan" id="dropdown_plan"
                                         style="border-radius:20px;">
                                         <option <?php if ($selected_plan == 'plan1') {
-											echo 'selected';
-										} ?> value="plan1"><?php echo $plan1; ?></option>
+                                                    echo 'selected';
+                                                } ?> value="plan1"><?php echo $plan1; ?></option>
                                         <option <?php if ($selected_plan == 'plan2') {
-											echo 'selected';
-										} ?> value="plan2"><?php echo $plan2; ?></option>
+                                                    echo 'selected';
+                                                } ?> value="plan2"><?php echo $plan2; ?></option>
                                         <option <?php if ($selected_plan == 'plan3') {
-											echo 'selected';
-										} ?> value="plan3"><?php echo $plan3; ?></option>
+                                                    echo 'selected';
+                                                } ?> value="plan3"><?php echo $plan3; ?></option>
                                         <option <?php if ($selected_plan == 'plan4') {
-											echo 'selected';
-										} ?> value="plan4"><?php echo $plan4; ?></option>
+                                                    echo 'selected';
+                                                } ?> value="plan4"><?php echo $plan4; ?></option>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?php echo form_error('chosen_plan'); ?>
@@ -195,34 +196,39 @@ $this->load->view('templates/header');
                                 <div class="form-group col-md-12 deposit-form">
                                     <label for="plan_option">Mode of Payment</label>
                                     <select class="form-control" name="plan_payment_mode"
-                                        <?php if(!$is_verified) echo 'disabled';?>>
+                                        <?php if (!$is_verified) echo 'disabled'; ?>>
 
                                         <option <?php if ($selected_mode == 'mode7') {
-                                                echo 'selected';
-                                            } ?> value="mode7">E-Money</option>
+                                                    echo 'selected';
+                                                } ?> value="mode7">E-Money</option>
+
+                                        <option <?php if ($selected_mode == 'mode17') {
+                                                    echo 'selected';
+                                                } ?> value="mode17">Activation Fund</option>
+
                                         <option <?php if ($selected_mode == 'mode1') {
-                                                echo 'selected';
-                                            } ?> value="mode1">Bitcoin</option>
+                                                    echo 'selected';
+                                                } ?> value="mode1">Bitcoin</option>
 
                                         <option <?php if ($selected_mode == 'mode2') {
-                                                echo 'selected';
-                                            } ?> value="mode2">Ethereum</option>
+                                                    echo 'selected';
+                                                } ?> value="mode2">Ethereum</option>
 
                                         <option <?php if ($selected_mode == 'mode8') {
-                                                echo 'selected';
-                                            } ?> value="mode8">XRP</option>
+                                                    echo 'selected';
+                                                } ?> value="mode8">XRP</option>
 
                                         <option <?php if ($selected_mode == 'mode9') {
-                                                echo 'selected';
-                                            } ?> value="mode9">TRX</option>
+                                                    echo 'selected';
+                                                } ?> value="mode9">TRX</option>
 
                                         <option <?php if ($selected_mode == 'mode10') {
-                                                echo 'selected';
-                                            } ?> value="mode10">Litecoin</option>
+                                                    echo 'selected';
+                                                } ?> value="mode10">Litecoin</option>
 
                                         <option <?php if ($selected_mode == 'mode11') {
-                                                echo 'selected';
-                                            } ?> value="mode11">Doge Coin</option>
+                                                    echo 'selected';
+                                                } ?> value="mode11">Doge Coin</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?php echo form_error('plan_payment_mode'); ?>
@@ -234,10 +240,10 @@ $this->load->view('templates/header');
                                     <div class="input-group">
                                         <input type="text" class="deposit-amount form-control 
                                             <?php if (strlen(form_error('deposit_amount')) > 0) {
-                                                    echo "is-invalid";
+                                                echo "is-invalid";
                                             } ?>" name="deposit_amount" id="deposit-amount"
                                             value="<?php if (isset($deposit_amount)) echo $deposit_amount; ?>"
-                                            placeholder="$ 0.00" <?php if(!$is_verified) echo 'disabled';?>>
+                                            placeholder="$ 0.00" <?php if (!$is_verified) echo 'disabled'; ?>>
                                         <div class="invalid-feedback deposit-error">
                                             <?php echo form_error('deposit_amount'); ?>
                                         </div>
@@ -246,7 +252,7 @@ $this->load->view('templates/header');
 
                             </div>
                             <button type="submit" class="submit-deposit btn btn-block" name="deposit-submit-button"
-                                id="btnSubmit" <?php if(!$is_verified) echo 'disabled';?>>
+                                id="btnSubmit" <?php if (!$is_verified) echo 'disabled'; ?>>
                                 BUY NOW
                             </button>
                             <?php echo form_close(); ?>

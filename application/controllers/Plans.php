@@ -130,6 +130,9 @@ class Plans extends CI_Controller
 				$deposit_data['deposit_options_id'] = '15';
 				$data['deposit_payment_mode'] = strtoupper($modes_of_payment[6]->name);
 				$data['deposit_address'] = $modes_of_payment[5]->account;
+			} else if ($_POST['plan_payment_mode'] == 'mode17') {
+				$deposit_data['deposit_options_id'] = '17';
+				$data['deposit_payment_mode'] = strtoupper($modes_of_payment[7]->name);
 			}
 
 			if ($_POST['plan_payment_mode'] == 'mode7') {
