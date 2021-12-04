@@ -20,6 +20,7 @@ class Withdraw extends CI_Controller
     $this->load->model('Fund_bonus_model');
     $this->load->model('Lifestyle_bonus_model');
     $this->load->model('GroupSalesModel');
+    $this->load->model('Account_model');
 
     date_default_timezone_set('Asia/Manila');
   }
@@ -28,10 +29,10 @@ class Withdraw extends CI_Controller
   {
     $data['title'] = 'Withdraw';
 
-    		$data['username'] = $this->session->userdata('username');
-    		$data['email'] = $this->session->userdata('email');
-    		$data['fullname'] = $this->session->userdata('fullname');
-    		$data['date_registered'] = $this->session->userdata('date_registered');
+    $data['username'] = $this->session->userdata('username');
+    $data['email'] = $this->session->userdata('email');
+    $data['fullname'] = $this->session->userdata('fullname');
+    $data['date_registered'] = $this->session->userdata('date_registered');
 
     $member = $this->Members->get_member($this->session->username);
 
@@ -54,13 +55,15 @@ class Withdraw extends CI_Controller
     $active_deposit = $this->DepositModel->get_total_approved_deposit_per_member($member->id);
     $total_monthly_bonus = $this->GroupSalesModel->get_total_per_member($member->id);
 
-		$fsf_bonus = $this->Fund_bonus_model->total_fund_bonus($member->id);
-		$lifestyle_bonus = $this->Lifestyle_bonus_model->total_fund_bonus($member->id);
+    $fsf_bonus = $this->Fund_bonus_model->total_fund_bonus($member->id);
+    $lifestyle_bonus = $this->Lifestyle_bonus_model->total_fund_bonus($member->id);
     $bonus_withdrawal = $this->WithdrawalModel->get_bonus_withdrawal_per_member($member->id)->amount;
 
     $lifestyle_bonus_balance = $lifestyle_bonus - $bonus_withdrawal;
 
-    $account_balance = ($total_growth + $total_bonus + $total_received + $total_monthly_bonus->bonus ) - $total_withdrawal->amount - $total_reinvestment->amount - $total_sent - $pending_withdrawal->total;
+    // $account_balance = ($total_growth + $total_bonus + $total_received + $total_monthly_bonus->bonus ) - $total_withdrawal->amount - $total_reinvestment->amount - $total_sent - $pending_withdrawal->total;
+
+    $account_balance = $this->Account_model->get_account_balance($member->id);
 
     // if($account_balance < 20){
     //   $data['withdrawable'] = 'not withdrawable';
@@ -76,13 +79,13 @@ class Withdraw extends CI_Controller
     $withdrawal_history = array();
     $all_withdrawals = $this->WithdrawalModel->get_withdrawal_per_member($member->id);
     foreach ($all_withdrawals as $withdrawal) {
-        $history = array();
-        $history['amount'] = $withdrawal->amount;
-        $history['mode'] = $withdrawal->payment_method;
-        $history['date'] = $withdrawal->date;
-        $history['status'] = ($withdrawal->is_pending == 1)?'Pending':'Fulfilled';
+      $history = array();
+      $history['amount'] = $withdrawal->amount;
+      $history['mode'] = $withdrawal->payment_method;
+      $history['date'] = $withdrawal->date;
+      $history['status'] = ($withdrawal->is_pending == 1) ? 'Pending' : 'Fulfilled';
 
-        array_push($withdrawal_history, $history);
+      array_push($withdrawal_history, $history);
     }
     $data['withdrawal_history'] = $withdrawal_history;
 
@@ -90,71 +93,69 @@ class Withdraw extends CI_Controller
     $this->form_validation->set_rules('withdraw_amount', 'Withdraw Amount', 'required|regex_match[/^(\d*\.)?\d+$/]|greater_than_equal_to[20]|callback_valid_amount|callback_has_pending');
 
     if ($this->form_validation->run() == FALSE) {
-      if(isset($_POST['plan_payment_mode'])){
-				$data['selected_mode'] = $_POST['plan_payment_mode'];
+      if (isset($_POST['plan_payment_mode'])) {
+        $data['selected_mode'] = $_POST['plan_payment_mode'];
       }
       // $this->load->view('templates/header', $data);
       $this->load->view('pages/withdraw', $data);
       // $this->load->view('templates/footer');
-    }
-    else{
-        $withdrawal_data['member_id'] = $member->id;
-        $withdrawal_data['date'] = date('Y-m-d H:i:s');
-        $withdrawal_data['amount'] = $_POST['withdraw_amount'];
+    } else {
+      $withdrawal_data['member_id'] = $member->id;
+      $withdrawal_data['date'] = date('Y-m-d H:i:s');
+      $withdrawal_data['amount'] = $_POST['withdraw_amount'];
 
-        if($_POST['plan_payment_mode'] == 'mode1'){
-          $withdrawal_data['payment_method'] = 'Bank';
-          if(strlen($bank->bank_name) <= 0){
-            $data['update_field'] = 'Bank';
-              redirect('account_settings', 'refresh');
-          }
-  			}else if($_POST['plan_payment_mode'] == 'mode2'){
-          $withdrawal_data['payment_method'] = 'Bitcoin';
-          if(strlen($withdrawal_modes->bitcoin) <= 0){
-            $this->session->set_flashdata('update_field', 'Bitcoin');
-            redirect('account_settings', 'refresh');
-          }
-  			}else if($_POST['plan_payment_mode'] == 'mode3'){
-          $withdrawal_data['payment_method'] = 'Ethereum';
-          if(strlen($withdrawal_modes->ethereum) <= 0){
-            $this->session->set_flashdata('update_field', 'Ethereum');
-            redirect('account_settings', 'refresh');
-          }
-  			}else if($_POST['plan_payment_mode'] == 'mode4'){
-          $withdrawal_data['payment_method'] = 'Ripple (XRP)';
-          if(strlen($withdrawal_modes->xrp_account) <= 0){
-            $this->session->set_flashdata('update_field', 'Ripple(XRP)');
-            redirect('account_settings', 'refresh');
-          }
-  			}else if($_POST['plan_payment_mode'] == 'mode5'){
-          $withdrawal_data['payment_method'] = 'Tron (TRX)';
-          if(strlen($withdrawal_modes->trx) <= 0){
-            $this->session->set_flashdata('update_field', 'Tron(TRX)');
-            redirect('account_settings', 'refresh');
-          }
-  			}else if($_POST['plan_payment_mode'] == 'mode10'){
-          $withdrawal_data['payment_method'] = 'Litecoin';
-          if(strlen($withdrawal_modes->litecoin) <= 0){
-            $this->session->set_flashdata('update_field', 'Litecoin');
-            redirect('account_settings', 'refresh');
-          }
-  			}else if($_POST['plan_payment_mode'] == 'mode11'){
-          $withdrawal_data['payment_method'] = 'Bitcoin Cash';
-          if(strlen($withdrawal_modes->bitcoin_cash) <= 0){
-            $this->session->set_flashdata('update_field', 'Bitcoin Cash');
-            redirect('account_settings', 'refresh');
-          }
-  			}
-        if($_POST['withdrawal_source'] == 'account_balance'){
-          $withdrawal_data['is_from_bonus'] = 0;  
+      if ($_POST['plan_payment_mode'] == 'mode1') {
+        $withdrawal_data['payment_method'] = 'Bank';
+        if (strlen($bank->bank_name) <= 0) {
+          $data['update_field'] = 'Bank';
+          redirect('account_settings', 'refresh');
         }
-        $withdrawal_data['is_pending'] = 1;
+      } else if ($_POST['plan_payment_mode'] == 'mode2') {
+        $withdrawal_data['payment_method'] = 'Bitcoin';
+        if (strlen($withdrawal_modes->bitcoin) <= 0) {
+          $this->session->set_flashdata('update_field', 'Bitcoin');
+          redirect('account_settings', 'refresh');
+        }
+      } else if ($_POST['plan_payment_mode'] == 'mode3') {
+        $withdrawal_data['payment_method'] = 'Ethereum';
+        if (strlen($withdrawal_modes->ethereum) <= 0) {
+          $this->session->set_flashdata('update_field', 'Ethereum');
+          redirect('account_settings', 'refresh');
+        }
+      } else if ($_POST['plan_payment_mode'] == 'mode4') {
+        $withdrawal_data['payment_method'] = 'Ripple (XRP)';
+        if (strlen($withdrawal_modes->xrp_account) <= 0) {
+          $this->session->set_flashdata('update_field', 'Ripple(XRP)');
+          redirect('account_settings', 'refresh');
+        }
+      } else if ($_POST['plan_payment_mode'] == 'mode5') {
+        $withdrawal_data['payment_method'] = 'Tron (TRX)';
+        if (strlen($withdrawal_modes->trx) <= 0) {
+          $this->session->set_flashdata('update_field', 'Tron(TRX)');
+          redirect('account_settings', 'refresh');
+        }
+      } else if ($_POST['plan_payment_mode'] == 'mode10') {
+        $withdrawal_data['payment_method'] = 'Litecoin';
+        if (strlen($withdrawal_modes->litecoin) <= 0) {
+          $this->session->set_flashdata('update_field', 'Litecoin');
+          redirect('account_settings', 'refresh');
+        }
+      } else if ($_POST['plan_payment_mode'] == 'mode11') {
+        $withdrawal_data['payment_method'] = 'Bitcoin Cash';
+        if (strlen($withdrawal_modes->bitcoin_cash) <= 0) {
+          $this->session->set_flashdata('update_field', 'Bitcoin Cash');
+          redirect('account_settings', 'refresh');
+        }
+      }
+      if ($_POST['withdrawal_source'] == 'account_balance') {
+        $withdrawal_data['is_from_bonus'] = 0;
+      }
+      $withdrawal_data['is_pending'] = 1;
 
-        $this->WithdrawalModel->add_new_withdrawal($withdrawal_data);
+      $this->WithdrawalModel->add_new_withdrawal($withdrawal_data);
 
-        redirect('withdraw','refresh');
+      redirect('withdraw', 'refresh');
     }
-
   }
 
   public function valid_amount()
@@ -163,83 +164,87 @@ class Withdraw extends CI_Controller
 
     $pending_withdrawal = $this->WithdrawalModel->get_pending_withdrawal($member->id);
     $total_growth = $this->DepositModel->get_total_growth($member->id);
-    $total_withdrawn = $this->WithdrawalModel->compute_total_withdrawn ($member->id);
+    $total_withdrawn = $this->WithdrawalModel->compute_total_withdrawn($member->id);
     $total_bonus = $this->Referral_bonus_model->get_total_bonus($member->id);
     $total_reinvestment = $this->DepositModel->get_total_member_reinvestment($member->id);
     $total_sent = $this->Fund_transfer_model->get_total_sent($member->id);
     $total_received = $this->Fund_transfer_model->get_total_received($member->id);
 
-		$fsf_bonus = $this->Fund_bonus_model->total_fund_bonus($member->id);
-		$lifestyle_bonus = $this->Lifestyle_bonus_model->total_fund_bonus($member->id);
+    $fsf_bonus = $this->Fund_bonus_model->total_fund_bonus($member->id);
+    $lifestyle_bonus = $this->Lifestyle_bonus_model->total_fund_bonus($member->id);
     $bonus_withdrawal = $this->WithdrawalModel->get_bonus_withdrawal_per_member($member->id)->amount;
 
     $lifestyle_bonus_balance = $lifestyle_bonus - $bonus_withdrawal;
 
-    $account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent - $pending_withdrawal->total;
+    // $account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent - $pending_withdrawal->total;
 
-    if($_POST['withdrawal_source'] == 'account_balance'){
-      if($_POST['withdraw_amount'] > $account_balance){
+    $account_balance = $this->Account_model->get_account_balance($member->id);
+
+    if ($_POST['withdrawal_source'] == 'account_balance') {
+      if ($_POST['withdraw_amount'] > $account_balance) {
         $this->form_validation->set_message('valid_amount', 'Invalid amount.');
         return false;
-      }else if($_POST['withdraw_amount'] < 20){
+      } else if ($_POST['withdraw_amount'] < 20) {
         $this->form_validation->set_message('valid_amount', 'Invalid amount.');
-      return false;
-      }else if($_POST['withdraw_amount'] > 500){
+        return false;
+      } else if ($_POST['withdraw_amount'] > 500) {
         $this->form_validation->set_message('valid_amount', 'Amount must be less than or equal to 500 USD.');
-      return false;
-      }else {
+        return false;
+      } else {
         return true;
       }
-    }else if($_POST['withdrawal_source'] == 'bonus'){
-      if($_POST['withdraw_amount'] > $lifestyle_bonus_balance){
+    } else if ($_POST['withdrawal_source'] == 'bonus') {
+      if ($_POST['withdraw_amount'] > $lifestyle_bonus_balance) {
         $this->form_validation->set_message('valid_amount', 'Invalid amount.');
         return false;
-      }else if($_POST['withdraw_amount'] < 20){
+      } else if ($_POST['withdraw_amount'] < 20) {
         $this->form_validation->set_message('valid_amount', 'Invalid amount.');
-      return false;
-      }else if($_POST['withdraw_amount'] > 500){
+        return false;
+      } else if ($_POST['withdraw_amount'] > 500) {
         $this->form_validation->set_message('valid_amount', 'Amount must be less than or equal to 500 USD.');
-      return false;
-      }else {
+        return false;
+      } else {
         return true;
       }
     }
   }
 
-  public function has_pending(){
-    if(!isset($_POST['withdraw_amount'])){
+  public function has_pending()
+  {
+    if (!isset($_POST['withdraw_amount'])) {
       $this->form_validation->set_message('has_pending', 'Invalid amount!');
       return false;
     }
 
-    if(strlen($_POST['withdraw_amount']) == 0){
+    if (strlen($_POST['withdraw_amount']) == 0) {
       $this->form_validation->set_message('has_pending', 'Invalid amount!');
       return false;
     }
 
-    if(!is_numeric($_POST['withdraw_amount'])){
+    if (!is_numeric($_POST['withdraw_amount'])) {
       $this->form_validation->set_message('has_pending', 'Invalid amount!');
       return false;
     }
 
-        $member = $this->Members->get_member($this->session->username);
+    $member = $this->Members->get_member($this->session->username);
 
-        $pending_withdrawal = $this->WithdrawalModel->get_pending_withdrawal($member->id);
-        $total_growth = $this->DepositModel->get_total_growth($member->id);
-        $total_withdrawn = $this->WithdrawalModel->compute_total_withdrawn ($member->id);
-        $total_bonus = $this->Referral_bonus_model->get_total_bonus($member->id);
-    		$total_reinvestment = $this->DepositModel->get_total_member_reinvestment($member->id);
-        $total_sent = $this->Fund_transfer_model->get_total_sent($member->id);
-        $total_received = $this->Fund_transfer_model->get_total_received($member->id);
+    $pending_withdrawal = $this->WithdrawalModel->get_pending_withdrawal($member->id);
+    $total_growth = $this->DepositModel->get_total_growth($member->id);
+    $total_withdrawn = $this->WithdrawalModel->compute_total_withdrawn($member->id);
+    $total_bonus = $this->Referral_bonus_model->get_total_bonus($member->id);
+    $total_reinvestment = $this->DepositModel->get_total_member_reinvestment($member->id);
+    $total_sent = $this->Fund_transfer_model->get_total_sent($member->id);
+    $total_received = $this->Fund_transfer_model->get_total_received($member->id);
 
-        $account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent;
+    // $account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent;
 
-    if(($pending_withdrawal->total + $_POST['withdraw_amount']) > $account_balance){
+    $account_balance = $this->Account_model->get_account_balance($member->id);
+
+    if (($pending_withdrawal->total + $_POST['withdraw_amount']) > $account_balance) {
       $this->form_validation->set_message('has_pending', 'Pending withdrawal will be more than account balance.');
       return false;
-    }else{
+    } else {
       return true;
     }
   }
-
 }

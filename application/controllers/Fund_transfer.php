@@ -16,6 +16,8 @@ class Fund_transfer  extends CI_Controller
 		$this->load->model('Referral_codes');
 		$this->load->model('Fund_bonus_model');
 		$this->load->model('GroupSalesModel');
+		$this->load->model('Account_model');
+		$this->load->model('Activation_fund_model');
 
 		date_default_timezone_set('Asia/Manila');
 	}
@@ -43,6 +45,7 @@ class Fund_transfer  extends CI_Controller
 			$recipient_data  = $this->Members->get_member_by_id($sent_fund->receiver_member_id);
 			$sent['recipient'] = $recipient_data->full_name;
 			$sent['date'] = $sent_fund->date;
+			$sent['source'] = $sent_fund->source_of_fund == 'e_money' ? "E-Money" : "Activation Fund";
 
 			array_push($sent_fund_history, $sent);
 		}
@@ -60,6 +63,7 @@ class Fund_transfer  extends CI_Controller
 			$sender_data  = $this->Members->get_member_by_id($received_fund->sender_member_id);
 			$received['sender'] = $sender_data->full_name;
 			$received['date'] = $received_fund->date;
+			$received['source'] = $received_fund->source_of_fund == 'e_money' ? "E-Money" : "Activation Fund";
 
 			array_push($received_fund_history, $received);
 		}
@@ -82,55 +86,65 @@ class Fund_transfer  extends CI_Controller
 
 		$fsf_bonus = $this->Fund_bonus_model->total_fund_bonus($member_data->id);
 
-		$account_balance = ($total_growth + $total_bonus + $total_received + $total_monthly_bonus->bonus) - $total_withdrawal->amount - $total_reinvestment->amount - $total_sent - $pending_withdrawal->total;
+		// $account_balance = ($total_growth + $total_bonus + $total_received + $total_monthly_bonus->bonus) - $total_withdrawal->amount - $total_reinvestment->amount - $total_sent - $pending_withdrawal->total;
+		$account_balance = $this->Account_model->get_account_balance($member_data->id);
+		$activation_fund = $this->Activation_fund_model->total_fund_per_member($member_data->id);
 
-    $data['account_balance'] = number_format($account_balance, 2, '.', ',');
+		$data['account_balance'] = number_format($account_balance, 2, '.', ',');
+		$data['activation_fund'] = number_format($activation_fund, 2, '.', ',');
 
-    $this->form_validation->set_rules('receiver_code', 'Code', 'required|callback_validate_code');
-    $this->form_validation->set_rules('transfer_amount', 'Amount', 'required|regex_match[/^(\d*\.)?\d+$/]|less_than_equal_to['.$account_balance.']');
+		$this->form_validation->set_rules('receiver_code', 'Code', 'required|callback_validate_code');
+		if (isset($_POST['transfer_source']))
+			if ($_POST['transfer_source'] == 'e_money')
+				$this->form_validation->set_rules('transfer_amount', 'Amount', 'required|regex_match[/^(\d*\.)?\d+$/]|less_than_equal_to[' . $account_balance . ']');
+			else
+				$this->form_validation->set_rules('transfer_amount', 'Amount', 'required|regex_match[/^(\d*\.)?\d+$/]|less_than_equal_to[' . $activation_fund . ']');
 
-    if($this->form_validation->run() == FALSE){
+
+		if ($this->form_validation->run() == FALSE) {
 			// print_r('akjhfkajsthfklsadf');
-      $this->load->view('pages/fund_transfer', $data);
-    }
-    else{
-      $transfer_data = array(
+			$this->load->view('pages/fund_transfer', $data);
+		} else {
+			$transfer_data = array(
 				'sender_member_id' => $member_data->id
 			);
 
-    //   $referral_code_data = $this->Referral_codes->get_by_code($_POST['receiver_code']);
-      $receiver_data = $this->Members->get_member($_POST['receiver_code']);
+			//   $referral_code_data = $this->Referral_codes->get_by_code($_POST['receiver_code']);
+			$receiver_data = $this->Members->get_member($_POST['receiver_code']);
 
-      $transfer_data['receiver_member_id'] = $receiver_data->id;
-      $transfer_data['amount'] = $_POST['transfer_amount'];
-      $transfer_data['date'] = date('Y-m-d H:i:s');
+			$transfer_data['receiver_member_id'] = $receiver_data->id;
+			$transfer_data['amount'] = $_POST['transfer_amount'];
+			$transfer_data['date'] = date('Y-m-d H:i:s');
+			$transfer_data['source_of_fund'] = $_POST['transfer_source'];
 
-      $this->Fund_transfer_model->add($transfer_data);
+			$this->Fund_transfer_model->add($transfer_data);
 
 			// print_r($transfer_data);
-      $this->session->set_flashdata('transfer_success', "You successfuly transfered $ ".number_format($_POST['transfer_amount'], 2, '.', ',')." to ".$_POST['receiver_code']."!" );
+			$this->session->set_flashdata('transfer_success', "You successfuly transfered $ " . number_format($_POST['transfer_amount'], 2, '.', ',') . " to " . $_POST['receiver_code'] . "!");
 
-      redirect('fund_transfer', 'refresh');
-    }
-  }
-
-  public function validate_code()
-  {
-    $is_code_valid = $this->Members->verify_member_code($_POST['receiver_code']);
-		// print_r($is_code_valid);
-
-	$receiver_data = $this->Members->get_member($_POST['receiver_code']);
-
-	if($receiver_data->id == $this->session->user_id){
-		$this->form_validation->set_message('validate_code', 'You cannot transfer to your own account.');
-		return false;
+			redirect('fund_transfer', 'refresh');
+		}
 	}
 
-    if($is_code_valid){
-      return true;
-    }else{
-      $this->form_validation->set_message('validate_code', 'Code entered is invalid.');
-      return false;
-    }
-  }
+	public function validate_code()
+	{
+		$is_code_valid = $this->Members->verify_member_code($_POST['receiver_code']);
+		// print_r($is_code_valid);
+
+		$receiver_data = $this->Members->get_member($_POST['receiver_code']);
+
+		if ($receiver_data != null)
+			if ($receiver_data->id == $this->session->user_id) {
+				$this->form_validation->set_message('validate_code', 'You cannot transfer to your own account.');
+				return false;
+			}
+
+		if ($is_code_valid != null)
+			if ($is_code_valid) {
+				return true;
+			} else {
+				$this->form_validation->set_message('validate_code', 'Code entered is invalid.');
+				return false;
+			}
+	}
 }

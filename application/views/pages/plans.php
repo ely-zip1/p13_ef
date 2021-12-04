@@ -199,7 +199,7 @@ $this->load->view('templates/header');
 
                                         <option <?php if ($selected_mode == 'mode7') {
                                                 echo 'selected';
-                                            } ?> value="mode7">Account Balance</option>
+                                            } ?> value="mode7">E-Money</option>
                                         <option <?php if ($selected_mode == 'mode1') {
                                                 echo 'selected';
                                             } ?> value="mode1">Bitcoin</option>

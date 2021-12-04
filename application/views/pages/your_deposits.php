@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('templates/header');
 ?>
 <div class="main-content">
@@ -18,7 +18,7 @@ $this->load->view('templates/header');
                 <div class="col-lg-12">
                     <div class="card card_pending_withdraw">
                         <div class="card-body ">
-                            <img src="<?php echo base_url();?>assets/img/banking/125-piggy-bank-3.png" alt="">
+                            <img src="<?php echo base_url(); ?>assets/img/banking/125-piggy-bank-3.png" alt="">
                             <h4>TOTAL DEPOSIT:</h4>
                             <h1> <?php echo '$ ' . $total_details; ?></h1>
                         </div>
@@ -39,7 +39,7 @@ $this->load->view('templates/header');
                 <div class="col-12">
                     <div class="card text-dark card_deposits_basic">
                         <div class="card-header">
-                            <h4>BRONZE PACKAGE</h4>
+                            <h4>STARTER PACKAGE</h4>
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table table-hover table-striped table-sm table-dark">
@@ -54,8 +54,8 @@ $this->load->view('templates/header');
                                 </thead>
                                 <tbody>
                                     <?php
-									if(isset($plan1_deposit_data)){
-									foreach ($plan1_deposit_data as $row){?>
+                                    if (isset($plan1_deposit_data)) {
+                                        foreach ($plan1_deposit_data as $row) { ?>
                                     <tr>
                                         <td>$ <?php echo $row['amount']; ?></td>
                                         <td><?php echo $row['mode']; ?></td>
@@ -63,7 +63,8 @@ $this->load->view('templates/header');
                                         <td><?php echo $row['status']; ?></td>
                                         <td><?php echo $row['days_remaining']; ?></td>
                                     </tr>
-                                    <?php }}?>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -75,7 +76,7 @@ $this->load->view('templates/header');
                 <div class="col-12">
                     <div class="card text-dark card_deposits_mega">
                         <div class="card-header">
-                            <h4>GOLD PACKAGE</h4>
+                            <h4>ASSOCIATE PACKAGE</h4>
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table table-hover table-striped table-sm table-dark">
@@ -90,8 +91,8 @@ $this->load->view('templates/header');
                                 </thead>
                                 <tbody>
                                     <?php
-									if(isset($plan2_deposit_data)){
-									foreach ($plan2_deposit_data as $row){?>
+                                    if (isset($plan2_deposit_data)) {
+                                        foreach ($plan2_deposit_data as $row) { ?>
                                     <tr>
                                         <td>$ <?php echo $row['amount']; ?></td>
                                         <td><?php echo $row['mode']; ?></td>
@@ -99,7 +100,8 @@ $this->load->view('templates/header');
                                         <td><?php echo $row['status']; ?></td>
                                         <td><?php echo $row['days_remaining']; ?></td>
                                     </tr>
-                                    <?php }}?>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -126,8 +128,8 @@ $this->load->view('templates/header');
                                 </thead>
                                 <tbody>
                                     <?php
-									if(isset($plan3_deposit_data)){
-									foreach ($plan3_deposit_data as $row){?>
+                                    if (isset($plan3_deposit_data)) {
+                                        foreach ($plan3_deposit_data as $row) { ?>
                                     <tr>
                                         <td>$ <?php echo $row['amount']; ?></td>
                                         <td><?php echo $row['mode']; ?></td>
@@ -135,7 +137,8 @@ $this->load->view('templates/header');
                                         <td><?php echo $row['status']; ?></td>
                                         <td><?php echo $row['days_remaining']; ?></td>
                                     </tr>
-                                    <?php }}?>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>

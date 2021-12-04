@@ -70,13 +70,13 @@ class Plans extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			if (isset($_POST['chosen_plan'])) {
 				$data['selected_plan'] = $_POST['chosen_plan'];
-				if($_POST['chosen_plan'] == 'plan1'){
+				if ($_POST['chosen_plan'] == 'plan1') {
 					$data['selected_plan_name'] = 'BASIC CURE';
-				}else if($_POST['chosen_plan'] == 'plan2'){
+				} else if ($_POST['chosen_plan'] == 'plan2') {
 					$data['selected_plan_name'] = 'MINOR CURE';
-				}else if($_POST['chosen_plan'] == 'plan3'){
+				} else if ($_POST['chosen_plan'] == 'plan3') {
 					$data['selected_plan_name'] = 'MAJOR CURE';
-				}else if($_POST['chosen_plan'] == 'plan4'){
+				} else if ($_POST['chosen_plan'] == 'plan4') {
 					$data['selected_plan_name'] = 'VIP:REBUILD';
 				}
 				$data['selected_mode'] = $_POST['plan_payment_mode'];
@@ -190,7 +190,9 @@ class Plans extends CI_Controller
 			$total_sent = $this->Fund_transfer_model->get_total_sent($member_data->id);
 			$total_received = $this->Fund_transfer_model->get_total_received($member_data->id);
 
-			$account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent;
+
+			$account_balance = $this->Account_model->get_account_balance($member_data->id);
+			// $account_balance = ($total_growth + $total_bonus + $total_received) - $total_withdrawn - $total_reinvestment->amount - $total_sent;
 
 			if ($_POST['chosen_plan'] == 'plan1') {
 				if ($_POST['deposit_amount'] >= 100 && $_POST['deposit_amount'] <= 999) {
@@ -272,17 +274,17 @@ class Plans extends CI_Controller
 			$bonus1_id = $this->Referral_bonus_model->insert($bonus_1_data);
 
 			$fs_bonus1 = array(
-			  'member_id' => $level_1->id,
-			  'referral_bonus_id' => $bonus1_id,
-			  'amount' => $bonus_1 * 0.5
+				'member_id' => $level_1->id,
+				'referral_bonus_id' => $bonus1_id,
+				'amount' => $bonus_1 * 0.5
 			);
-	  
+
 			$lifestyle_bonus1 = array(
-			  'member_id' => $level_1->id,
-			  'referral_bonus_id' => $bonus1_id,
-			  'amount' => $bonus_1 * 0.01
+				'member_id' => $level_1->id,
+				'referral_bonus_id' => $bonus1_id,
+				'amount' => $bonus_1 * 0.01
 			);
-	  
+
 			$this->Fund_bonus_model->add($fs_bonus1);
 			$this->Lifestyle_bonus_model->add($lifestyle_bonus1);
 
@@ -296,23 +298,23 @@ class Plans extends CI_Controller
 					'amount' => $bonus_2
 				);
 				$bonus2_id = $this->Referral_bonus_model->insert($bonus_2_data);
-  
+
 				$fs_bonus2 = array(
-				  'member_id' => $level_2->id,
-				  'referral_bonus_id' => $bonus2_id,
-				  'amount' => $bonus_2 * 0.5
+					'member_id' => $level_2->id,
+					'referral_bonus_id' => $bonus2_id,
+					'amount' => $bonus_2 * 0.5
 				);
-		
+
 				$lifestyle_bonus2 = array(
-				  'member_id' => $level_2->id,
-				  'referral_bonus_id' => $bonus2_id,
-				  'amount' => $bonus_2 * 0.01
+					'member_id' => $level_2->id,
+					'referral_bonus_id' => $bonus2_id,
+					'amount' => $bonus_2 * 0.01
 				);
-		  
+
 				$this->Fund_bonus_model->add($fs_bonus2);
 				$this->Lifestyle_bonus_model->add($lifestyle_bonus2);
 
-				if ($this->Members->get_referrer($level_2->id)->referred_by!= 'root') {
+				if ($this->Members->get_referrer($level_2->id)->referred_by != 'root') {
 					$level_3 = $this->Members->get_referrer($level_2->id);
 					// print_r($level_3);
 					$bonus_3 = $deposit->amount * 0.025;
@@ -322,19 +324,19 @@ class Plans extends CI_Controller
 						'amount' => $bonus_3
 					);
 					$bonus3_id = $this->Referral_bonus_model->insert($bonus_3_data);
-    
+
 					$fs_bonus3 = array(
-					  'member_id' => $level_3->id,
-					  'referral_bonus_id' => $bonus3_id,
-					  'amount' => $bonus_3 * 0.5
+						'member_id' => $level_3->id,
+						'referral_bonus_id' => $bonus3_id,
+						'amount' => $bonus_3 * 0.5
 					);
-		  
+
 					$lifestyle_bonus3 = array(
-					  'member_id' => $level_3->id,
-					  'referral_bonus_id' => $bonus3_id,
-					  'amount' => $bonus_3 * 0.01
+						'member_id' => $level_3->id,
+						'referral_bonus_id' => $bonus3_id,
+						'amount' => $bonus_3 * 0.01
 					);
-			  
+
 					$this->Fund_bonus_model->add($fs_bonus3);
 					$this->Lifestyle_bonus_model->add($lifestyle_bonus3);
 
@@ -349,19 +351,19 @@ class Plans extends CI_Controller
 							'amount' => $bonus_4
 						);
 						$bonus4_id = $this->Referral_bonus_model->insert($bonus_4_data);
-      
+
 						$fs_bonus4 = array(
-						  'member_id' => $level_4->id,
-						  'referral_bonus_id' => $bonus4_id,
-						  'amount' => $bonus_4 * 0.5
+							'member_id' => $level_4->id,
+							'referral_bonus_id' => $bonus4_id,
+							'amount' => $bonus_4 * 0.5
 						);
-			
+
 						$lifestyle_bonus4 = array(
-						  'member_id' => $level_4->id,
-						  'referral_bonus_id' => $bonus4_id,
-						  'amount' => $bonus_4 * 0.01
+							'member_id' => $level_4->id,
+							'referral_bonus_id' => $bonus4_id,
+							'amount' => $bonus_4 * 0.01
 						);
-				  
+
 						$this->Fund_bonus_model->add($fs_bonus4);
 						$this->Lifestyle_bonus_model->add($lifestyle_bonus4);
 
@@ -375,19 +377,19 @@ class Plans extends CI_Controller
 						// 		'amount' => $bonus_5 * 0.5
 						// 	);
 						// 	$bonus5_id = $this->Referral_bonus_model->insert($bonus_5_data);
-        
+
 						// 	$fs_bonus5 = array(
 						// 	  'member_id' => $level_5->id,
 						// 	  'referral_bonus_id' => $bonus5_id,
 						// 	  'amount' => $bonus_5 * 0.5
 						// 	);
-			  
+
 						// 	$lifestyle_bonus5 = array(
 						// 	  'member_id' => $level_5->id,
 						// 	  'referral_bonus_id' => $bonus5_id,
 						// 	  'amount' => $bonus_5 * 0.5
 						// 	);
-					  
+
 						// 	$this->Fund_bonus_model->add($fs_bonus5);
 						// 	$this->Lifestyle_bonus_model->add($lifestyle_bonus5);
 						// }

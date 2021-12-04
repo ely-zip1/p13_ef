@@ -1,6 +1,6 @@
 <?php
-  defined('BASEPATH') OR exit('No direct script access allowed');
-  $this->load->view('templates/header');
+defined('BASEPATH') or exit('No direct script access allowed');
+$this->load->view('templates/header');
 ?>
 
 <div class="main-content">
@@ -54,7 +54,7 @@
                     <div class="card card_ref_active">
                         <div class="ref-card-header">
                             <span class="title">Active</span>
-                            <span class="ref-count">Total - <?php echo $active_referrals; ?></span>
+                            <span class="ref-count">Total: <?php echo $active_referrals; ?></span>
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table table-striped table-dark">
@@ -66,8 +66,8 @@
                                         <th scope="col">Level</th>
                                     </tr>
                                     <?php
-									if (isset($referral_list)) {
-										foreach ($referral_list as $row) { ?>
+                                    if (isset($referral_list)) {
+                                        foreach ($referral_list as $row) { ?>
                                     <tr>
                                         <td><?php echo $row['username']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
@@ -75,7 +75,7 @@
                                         <td><?php echo $row['level']; ?></td>
                                     </tr>
                                     <?php }
-									} ?>
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -98,15 +98,15 @@
                                         <th scope="col">Level</th>
                                     </tr>
                                     <?php
-									if (isset($inactive_referral_list)) {
-										foreach ($inactive_referral_list as $row) { ?>
+                                    if (isset($inactive_referral_list)) {
+                                        foreach ($inactive_referral_list as $row) { ?>
                                     <tr>
                                         <td><?php echo $row['username']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
                                         <td><?php echo $row['level']; ?></td>
                                     </tr>
                                     <?php }
-									} ?>
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>

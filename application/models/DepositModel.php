@@ -229,6 +229,15 @@
 
             return $query->result();
         }
+
+        public function get_deposits_last_2days($member_id){
+          $this->db->select("*, TIMESTAMPDIFF(HOUR, date_approved, now()) as hours_passed");
+          $this->db->where('member_id', $member_id);
+          $this->db->where('package_id !=', '1');
+          $query = $this->db->get('td_deposits');
+
+          return $query->result();
+        }
     }
 
 

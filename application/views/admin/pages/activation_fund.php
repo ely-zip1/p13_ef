@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12">
                     <div class="section-header section_header_admin">
-                        <h4>Advanced Withdrawal Requests</h4>
+                        <h4>Activation Fund Admin</h4>
                     </div>
                     <div class="row">
                         <div class="col-lg-6"></div>
@@ -55,32 +55,31 @@
                                     <tr>
                                         <th>Client Name</th>
                                         <th>Email</th>
-                                        <th>Deposit</th>
-                                        <th>Amount Applied</th>
-                                        <th>E-Money</th>
-                                        <th>Date Applied</th>
-                                        <th>Action</th>
+                                        <th>Total Activation Fund</th>
+                                        <th>+/- Fund</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <?php foreach ($aw_requests as $request) { ?>
+                                    <?php foreach ($users as $user) { ?>
                                     <tr>
-                                        <td><?php echo $request['name']; ?></td>
-                                        <td><?php echo $request['email']; ?></td>
-                                        <td>$<?php echo number_format($request['deposit'], 2); ?></td>
-                                        <td>$<?php echo number_format($request['amount_applied'], 2); ?></td>
-                                        <td>$<?php echo number_format($request['e_money'], 2); ?></td>
-                                        <td><?php echo $request['date']; ?></td>
+                                        <td><?php echo $user['full_name']; ?></td>
+                                        <td><?php echo $user['email']; ?></td>
+                                        <td>$<?php echo number_format($user['total_fund'], 2); ?></td>
                                         <td>
-                                            <a class="btn btn-danger btn-sm"
-                                                href="<?php echo base_url('admin_loan/delete/' . $request['request_id']) ?>">
-                                                <i class="fas fa-times"></i>
-                                            </a>
-                                            <a class="btn btn-success btn-sm"
-                                                href="<?php echo base_url('admin_loan/approve/' . $request['request_id']) ?>">
-                                                <i class="fas fa-check"></i>
-                                            </a>
+                                            <?= form_open('activation_fund_admin'); ?>
+
+                                            <input type="text" required name="user_id" style="display: none;"
+                                                value="<?= $user['id'] ?>">
+
+                                            <!-- <input type="text" required name="user_id" value="<?= $user['id'] ?>"> -->
+
+                                            <input type="number" required name="new_amount" step=".01">
+                                            <button type="submit" class="btn btn-sm btn-success">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+
+                                            <?= form_close(); ?>
                                         </td>
                                     </tr>
                                     <?php } ?>

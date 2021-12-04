@@ -9,8 +9,8 @@
 /*# sourceMappingURL=custom.css.map */
 
 @font-face {
-    font-family: 'bebas_neueregular';
-    src: url('../fonts/bebasneue-regular-webfont.woff2') format('woff2'), url('../fonts/bebasneue-regular-webfont.woff') format('woff');
+    font-family: "bebas_neueregular";
+    src: url("../fonts/bebasneue-regular-webfont.woff2") format("woff2"), url("../fonts/bebasneue-regular-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
@@ -77,7 +77,7 @@ body {
     /* background-color: rgb(114, 0, 0); */
     /* background: rgb(255, 229, 229); */
     background-color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: black !important;
 }
 
@@ -122,7 +122,7 @@ body {
 }
 
 .user-fullname {
-    font-family: 'bebas_neueregular';
+    font-family: "bebas_neueregular";
     font-weight: lighter;
     font-size: 20px;
 }
@@ -152,7 +152,7 @@ body {
 
 .section-header {
     border-radius: 2px !important;
-    background: #EEA21D !important;
+    background: #eea21d !important;
     border-top: none !important;
     box-shadow: 2px 6px 20px 0px #0000002e;
     /* z-index: 1000000 !important; */
@@ -220,7 +220,7 @@ body {
 }
 
 .sidebar-menu li.active ul.dropdown-menu li a {
-    background: #E62E2D !important;
+    background: #e62e2d !important;
 }
 
 .sidebar-menu li.active>a:before {
@@ -262,9 +262,9 @@ body.sidebar-mini .main-sidebar .sidebar-menu>li.active>a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1F1F1F;
+    background: #1f1f1f;
     padding: 5px 10px;
-    color: #EEA21D;
+    color: #eea21d;
     font-weight: bold;
     border-radius: 2px;
     margin: 5px none;
@@ -284,7 +284,7 @@ button) {
 .copy-button {
     border: none;
     border-radius: 20px;
-    background: #EEA21D;
+    background: #eea21d;
     font-weight: bold;
     padding: 5px 10px;
 }
@@ -308,13 +308,13 @@ button) {
     padding: 10px 10px;
     /* border: 2px solid white; */
     /* background-color: white; */
-    color: #1F1F1F;
+    color: #1f1f1f;
 }
 
 .user-details .img-container {
     width: 70px;
     /* background-color: #ff0030; */
-    background-color: #EEA21D;
+    background-color: #eea21d;
     border-radius: 70px;
     text-align: -webkit-right;
 }
@@ -338,20 +338,20 @@ button) {
 }
 
 .account-summary-top {
-    background-color: #EEA21D;
+    background-color: #eea21d;
     /* background-color: #ff0030; */
     padding: 10px;
 }
 
 .account-summary-bottom {
-    background-color: #1F1F1F;
+    background-color: #1f1f1f;
     padding: 10px;
     height: 100px;
 }
 
 .account-summary-bottom a {
-    color: #EEA21D;
-    border: 2px solid #EEA21D;
+    color: #eea21d;
+    border: 2px solid #eea21d;
     border-radius: 2px;
     padding: 10px;
     width: 20ch;
@@ -361,13 +361,13 @@ button) {
 }
 
 .account-summary-bottom a:hover {
-    color: #1F1F1F;
-    background-color: #EEA21D;
+    color: #1f1f1f;
+    background-color: #eea21d;
     font-weight: bold;
 }
 
 .divider {
-    border: 1px solid #EEA21D;
+    border: 1px solid #eea21d;
     height: 1px;
 }
 
@@ -377,13 +377,13 @@ button) {
 }
 
 .bottom-small-value {
-    color: #EEA21D;
+    color: #eea21d;
     font-weight: bold;
     margin: 10px 0px;
 }
 
 .summary-label {
-    color: #1F1F1F !important;
+    color: #1f1f1f !important;
     font-weight: bold;
 }
 
@@ -391,7 +391,7 @@ button) {
     color: #ffffff !important;
     font-weight: bold;
     font-size: 50px !important;
-    font-family: 'Roboto Condensed', sans-serif !important;
+    font-family: "Roboto Condensed", sans-serif !important;
     text-shadow: 3px 3px 2px black;
 }
 
@@ -420,7 +420,7 @@ button) {
 
 .card-top::before {
     /* content: ''; */
-    background: url('../img/ef_logo-diagonal.svg');
+    background: url("../img/ef_logo-diagonal.svg");
     background-repeat: no-repeat;
     background-size: contain;
     width: 50%;
@@ -428,7 +428,7 @@ button) {
     position: absolute;
     bottom: 0%;
     right: 0%;
-    filter: opacity(.2);
+    filter: opacity(0.2);
 }
 
 .package-title {
@@ -443,7 +443,7 @@ button) {
     position: absolute;
     left: -2%;
     top: -20%;
-    content: '';
+    content: "";
     height: 41px;
     width: 85%;
     z-index: -1;
@@ -457,7 +457,7 @@ button) {
     color: white;
     font-size: 4.5rem;
     padding-bottom: 10px;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     letter-spacing: 2px;
 }
 
@@ -474,7 +474,7 @@ button) {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #c4c4c4;
-    color: #1F1F1F;
+    color: #1f1f1f;
 }
 
 .contract,
@@ -486,7 +486,7 @@ button) {
 .contract h2,
 .interest h2 {
     margin-bottom: -5px;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     color: rgb(37, 37, 37);
     letter-spacing: 1px;
 }
@@ -540,7 +540,7 @@ button) {
     color: transparent;
     text-decoration: none;
     font-weight: bold;
-    background: linear-gradient( #e8c99b 0%, #af715e 74%);
+    background: linear-gradient(#e8c99b 0%, #af715e 74%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -567,7 +567,7 @@ button) {
     color: transparent;
     text-decoration: none;
     font-weight: bold;
-    background: linear-gradient( #fbb034 0%, #ffdd00 74%);
+    background: linear-gradient(#fbb034 0%, #ffdd00 74%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -594,7 +594,7 @@ button) {
     color: transparent;
     text-decoration: none;
     font-weight: bold;
-    background: linear-gradient( #cc00ff 0%, #8241b8 74%);
+    background: linear-gradient(#cc00ff 0%, #8241b8 74%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -613,13 +613,13 @@ button) {
 }
 
 .row-deposit label {
-    color: #EEA21D;
+    color: #eea21d;
 }
 
 .chosen-plan-panel {
     color: #ffffff;
     font-size: 3em;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     letter-spacing: 2px;
 }
 
@@ -645,10 +645,10 @@ button) {
 }
 
 .deposit-details {
-    background-color: #1F1F1F;
+    background-color: #1f1f1f;
     border-radius: 2px;
     box-shadow: 0px 0px 10px #00000063;
-    padding: 20px
+    padding: 20px;
 }
 
 .receipt-header {
@@ -676,22 +676,22 @@ button) {
     margin: 20px auto;
     border: 2px solid #eea21d;
     padding: 20px 0px;
-    background: #1F1F1F;
+    background: #1f1f1f;
     color: white;
     box-shadow: none;
     max-width: 85ch;
 }
 
 .deposit_detail_confirm:hover {
-    background: #EEA21D;
+    background: #eea21d;
 }
 
 .alert-receipt {
-    color: #EEA21D;
+    color: #eea21d;
 }
 
 .details-table {
-    font-family: 'consolas', 'Courier New', Courier, monospace;
+    font-family: "consolas", "Courier New", Courier, monospace;
 }
 
 .details-table img {
@@ -729,13 +729,13 @@ button) {
 }
 
 .withdrawal_alert {
-    background-color: #1F1F1F;
+    background-color: #1f1f1f;
     color: greenyellow;
     border-radius: 2px;
 }
 
 .withdraw-box {
-    background-color: #1F1F1F;
+    background-color: #1f1f1f;
     border-radius: 2px;
     padding: 10px;
     color: white;
@@ -750,18 +750,18 @@ button) {
 }
 
 .summary-one h3 {
-    color: #EEA21D;
+    color: #eea21d;
     font-size: 50px !important;
 }
 
 .summary-three h3 {
-    color: #EEA21D;
+    color: #eea21d;
     font-size: 50px !important;
 }
 
 .card_withdrawal {
     background: transparent;
-    color: #EEA21D;
+    color: #eea21d;
 }
 
 .card_withdrawal .withdraw_button {
@@ -772,7 +772,7 @@ button) {
 }
 
 .card_withdrawal .withdraw_button:hover {
-    background: #EEA21D !important;
+    background: #eea21d !important;
 }
 
 .card_withdrawal label {
@@ -809,7 +809,7 @@ button) {
 .card_fund_sent,
 .card_fund_received {
     padding: 20px;
-    background-color: #1F1F1F;
+    background-color: #1f1f1f;
     border-radius: 2px;
     color: white;
 }
@@ -833,7 +833,7 @@ button) {
 }
 
 .monthly-bonus-image {
-    background: url('../img/bonus1.jpg');
+    background: url("../img/bonus1.jpg");
     background-size: cover;
     background-position-y: center;
     border-radius: 3px;
@@ -842,7 +842,7 @@ button) {
 }
 
 .cycle-bonus-image {
-    background: url('../img/bonus3.jpg');
+    background: url("../img/bonus3.jpg");
     background-size: cover;
     background-position-y: 70%;
     border-radius: 3px;
@@ -852,7 +852,7 @@ button) {
 
 .row-accounts .card {
     box-shadow: 0px 0px 5px #00000063 !important;
-    background: #1F1F1F;
+    background: #1f1f1f;
     background: linear-gradient(140deg, rgb(19, 19, 19) 0%, rgb(53, 53, 53) 81%);
 }
 
@@ -877,11 +877,11 @@ button) {
 }
 
 .deposit-row .card {
-    background: #1F1F1F;
+    background: #1f1f1f;
 }
 
 .deposit-row h4 {
-    color: #EEA21D;
+    color: #eea21d;
 }
 
 .deposit-row .card-header {
@@ -891,7 +891,7 @@ button) {
 }
 
 .card_message {
-    background: #1F1F1F;
+    background: #1f1f1f;
     border-radius: 2px;
     color: white;
     height: fit-content;
@@ -911,7 +911,7 @@ button) {
 }
 
 .btn-message-submit:hover {
-    background-color: #EEA21D !important;
+    background-color: #eea21d !important;
     color: white;
 }
 
@@ -921,13 +921,13 @@ button) {
 
 .total-bonus-title {
     font-size: 30px;
-    font-family: 'bebas_neueregular' !important;
+    font-family: "bebas_neueregular" !important;
 }
 
 .total-bonus-value {
     font-size: 70px;
-    font-family: 'bebas_neueregular' !important;
-    color: #FF6263;
+    font-family: "bebas_neueregular" !important;
+    color: #ff6263;
 }
 
 .rewards-row {
@@ -949,9 +949,9 @@ button.close {
 
 .main-footer {
     border: none !important;
-    background-color: #EEA21D;
+    background-color: #eea21d;
     text-align: center;
-    color: #1F1F1F;
+    color: #1f1f1f;
 }
 
 .crypto-list {
@@ -964,7 +964,7 @@ button.close {
 
 .crypto-list i {
     font-size: 3em;
-    color: #1F1F1F;
+    color: #1f1f1f;
     text-align: center;
     padding: 10px;
 }
@@ -993,5 +993,28 @@ button.close {
 }
 
 .loan-form-column label {
-    color: white;
+    color: #eea21d;
+}
+
+.loan-form-column button {
+    background-color: #eea21d;
+}
+
+.totals-row {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-family: 'anton', 'sans serif';
+    color: #1f1f1f;
+}
+
+.totals-row div {
+    display: flex;
+    vertical-align: middle;
+}
+
+.total-value {
+    /* font-weight: bold; */
+    font-size: 2em !important;
+    line-height: 55px;
+    margin-left: 10px;
 }
