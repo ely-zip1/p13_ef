@@ -60,8 +60,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         Withdrawals</span></a>
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'activation_fund_admin' ? 'active' : ''; ?>"> <a
-                    href="<?= base_url(); ?>activation_fund_admin" class="nav-link"><i class="fas fa-bolt"></i><span>
+            <li class="dropdown <?php echo $this->uri->segment(1) == 'Activation_fund_admin' ? 'active' : ''; ?>"> <a
+                    href="<?= base_url(); ?>Activation_fund_admin" class="nav-link"><i class="fas fa-bolt"></i><span>
                         Activation Funds</span></a>
             </li>
             <br>
