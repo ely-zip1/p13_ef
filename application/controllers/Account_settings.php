@@ -41,11 +41,11 @@ class Account_settings extends CI_Controller
 		$bank = $this->Bank_model->get_per_member_id($member_data->id);
 
 		$data['bank_name'] = $bank->bank_name;
-		$data['bank_swift_code'] = $bank->swift_code;
+		// $data['bank_swift_code'] = $bank->swift_code;
 		$data['bank_account_name'] = $bank->account_name;
 		$data['bank_account_number'] = $bank->account_number;
 		$data['bank_code'] = $bank->bank_code;
-		// $data['bank_country'] = $bank->country;
+		$data['bank_country'] = $bank->country;
 		// $data['country_placeholder'] = '<option value="'.$bank->country.'">'.$bank->country.'</option>';
 		$withdrawal_account = $this->Withdrawal_Mode_model->get_per_member($member_data->id);
 		// echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
@@ -69,7 +69,7 @@ class Account_settings extends CI_Controller
 				$this->form_validation->set_rules('bank_name', 'Bank Name', 'required');
 				$this->form_validation->set_rules('bank_account_name', 'Account Name', 'required');
 				$this->form_validation->set_rules('bank_account_number', 'Account Number', 'required');
-				$this->form_validation->set_rules('bank_swift_code', 'Swift Code', 'required');
+				// $this->form_validation->set_rules('bank_swift_code', 'Swift Code', 'required');
 				$this->form_validation->set_rules('bank_code', 'Bank Code', 'required');
 			} else if ($_POST['account_submit'] == 'bitcoin') {
 				$this->form_validation->set_rules('bitcoin_account', 'Bitcoin Account', 'required');
@@ -112,10 +112,10 @@ class Account_settings extends CI_Controller
 					'bank_name' => $_POST['bank_name'],
 					'account_name' => $_POST['bank_account_name'],
 					'account_number' => $_POST['bank_account_number'],
-					'swift_code' => $_POST['bank_swift_code'],
+					// 'swift_code' => $_POST['bank_swift_code'],
 					'bank_code' => $_POST['bank_code'],
-					'member_id' => $member_data->id
-					// 'country' => $_POST['country']
+					'member_id' => $member_data->id,
+					'country' => $_POST['country']
 				);
 				$this->Bank_model->update($new_bank_details);
 			} else if ($_POST['account_submit'] == 'bitcoin') {
