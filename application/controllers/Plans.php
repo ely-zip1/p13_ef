@@ -142,7 +142,7 @@ class Plans extends CI_Controller
 				$deposit_data['is_pending'] = '1';
 			}
 
-			// $this->DepositModel->add_deposit($deposit_data);
+			$this->DepositModel->add_deposit($deposit_data);
 
 
 			if ($_POST['plan_payment_mode'] == 'mode7') {
