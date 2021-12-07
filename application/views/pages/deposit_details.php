@@ -1,6 +1,6 @@
 <?php
-  defined('BASEPATH') OR exit('No direct script access allowed');
-  $this->load->view('templates/header');
+defined('BASEPATH') or exit('No direct script access allowed');
+$this->load->view('templates/header');
 ?>
 <div class="main-content">
 
@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="deposit-details">
                         <div class="receipt-header">
-                            <img src="<?=base_url()?>assets/img/ef_logo_complete.svg" alt="">
+                            <img src="<?= base_url() ?>assets/img/ef_logo_complete.svg" alt="">
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -23,7 +23,9 @@
                                         Package :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data receipt-selected-plan">
-                                        <?php if(isset($deposit_selected_plan) ){echo $deposit_selected_plan;} ?>
+                                        <?php if (isset($deposit_selected_plan)) {
+                                            echo $deposit_selected_plan;
+                                        } ?>
                                     </div>
                                 </div>
 
@@ -32,7 +34,9 @@
                                         Amount :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data deposit-amount">
-                                        <?php if(isset($deposit_amount) ){echo $deposit_amount;} ?>
+                                        <?php if (isset($deposit_amount)) {
+                                            echo $deposit_amount;
+                                        } ?>
                                     </div>
                                 </div>
 
@@ -41,7 +45,9 @@
                                         Date :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data">
-                                        <?php if(isset($deposit_date) ){echo $deposit_date;} ?>
+                                        <?php if (isset($deposit_date)) {
+                                            echo $deposit_date;
+                                        } ?>
                                     </div>
                                 </div>
 
@@ -50,97 +56,104 @@
                                         Payment mode :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data">
-                                        <?php if(isset($deposit_payment_mode) ){echo $deposit_payment_mode;} ?>
+                                        <?php if (isset($deposit_payment_mode)) {
+                                            echo $deposit_payment_mode;
+                                        } ?>
                                     </div>
                                 </div>
 
-                                <?php if(isset($deposit_payment_mode)){
+                                <?php if (isset($deposit_payment_mode)) {
                                     // print_r($deposit_payment_mode);
-                                    if($deposit_payment_mode != 'Account Balance'){ ?>
+                                    if ($deposit_payment_mode != 'Account Balance') { ?>
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
                                         Send to :
                                     </div>
                                     <?php
-                                    if(isset($deposit_payment_mode)){
-                                        if($deposit_payment_mode == 'Bitcoin'){ ?>
+                                            if (isset($deposit_payment_mode)) {
+                                                if ($deposit_payment_mode == 'Bitcoin') { ?>
 
                                     <div class="col-sm-8 table-receipt-data">
-                                        <img src="<?=base_url('assets/img/qr/btc.PNG')?>" alt="bitcoin" width="150px" />
+                                        <img src="<?= base_url('assets/img/qr/btc.PNG') ?>" alt="bitcoin"
+                                            width="150px" />
                                         <br><span class="deposit_address">Account :
                                             <strong>
-                                                <?=$deposit_address?></strong></span>
+                                                <?= $deposit_address ?></strong></span>
                                     </div>
 
-                                    <?php }else if($deposit_payment_mode == 'Ethereum'){ ?>
+                                    <?php } else if ($deposit_payment_mode == 'Ethereum') { ?>
 
                                     <div class="col-sm-8 table-receipt-data">
-                                        <img src="<?=base_url('assets/img/qr/eth.PNG')?>" alt="ethereum"
+                                        <img src="<?= base_url('assets/img/qr/eth.PNG') ?>" alt="ethereum"
                                             width="150px" />
                                         <br><span class="deposit_address">Account : <strong>
-                                                <?=$deposit_address?></strong></span>
+                                                <?= $deposit_address ?></strong></span>
                                     </div>
 
-                                    <?php }else if($deposit_payment_mode == 'Litecoin'){ ?>
+                                    <?php } else if ($deposit_payment_mode == 'Litecoin') { ?>
 
                                     <div class="col-sm-8 table-receipt-data">
-                                        <img src="<?=base_url('assets/img/qr/ltc.PNG')?>" alt="litecoin"
+                                        <img src="<?= base_url('assets/img/qr/ltc.PNG') ?>" alt="litecoin"
                                             width="150px" />
                                         <br><span class="deposit_address">Account : <strong>
-                                                <?=$deposit_address?></strong></span>
+                                                <?= $deposit_address ?></strong></span>
                                     </div>
 
-                                    <?php }else if($deposit_payment_mode == 'Doge Coin'){ ?>
+                                    <?php } else if ($deposit_payment_mode == 'Doge Coin') { ?>
 
                                     <div class="col-sm-8 table-receipt-data">
-                                        <img src="<?=base_url('assets/img/qr/doge.PNG')?>" alt="doge" width="150px" />
+                                        <img src="<?= base_url('assets/img/qr/doge.PNG') ?>" alt="doge" width="150px" />
                                         <br><span class="deposit_address">Account: <strong>
-                                                <?=$deposit_address?></strong></span>
+                                                <?= $deposit_address ?></strong></span>
                                     </div>
 
-                                    <?php }else if($deposit_payment_mode == 'XRP'){ ?>
+                                    <?php } else if ($deposit_payment_mode == 'XRP') { ?>
 
                                     <div class="col-sm-8 table-receipt-data">
-                                        <!-- <img src="<?=base_url('assets/img/qr/xrp.PNG')?>" alt="xrp" width="150px" /> -->
+                                        <!-- <img src="<?= base_url('assets/img/qr/xrp.PNG') ?>" alt="xrp" width="150px" /> -->
                                         <br>
                                         <span class="deposit_address">
-                                            Account : <strong><?=$deposit_address?></strong>
+                                            Account : <strong><?= $deposit_address ?></strong>
                                         </span>
                                         <br>
                                         <span class="deposit_address">
-                                            Tag : <strong><?=$deposit_tag?></strong>
+                                            Tag : <strong><?= $deposit_tag ?></strong>
                                         </span>
                                     </div>
 
-                                    <?php }else if($deposit_payment_mode == 'Tron'){ ?>
+                                    <?php } else if ($deposit_payment_mode == 'Tron') { ?>
 
                                     <div class="col-sm-8 table-receipt-data">
-                                        <img src="<?=base_url('assets/img/qr/trx.PNG')?>" alt="trx" width="150px" />
+                                        <img src="<?= base_url('assets/img/qr/trx.PNG') ?>" alt="trx" width="150px" />
                                         <br><span class="deposit_address">Account: <strong>
-                                                <?=$deposit_address?></strong></span>
+                                                <?= $deposit_address ?></strong></span>
                                     </div>
-                                    <?php }}?>
+                                    <?php }
+                                            } ?>
 
                                 </div>
 
-                                <?php }} ?>
+                                <?php }
+                                } ?>
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
                                         Status :
                                     </div>
                                     <div class="col-sm-8 table-receipt-data">
-                                        <?php if(isset($deposit_status) ){echo $deposit_status;} ?>
+                                        <?php if (isset($deposit_status)) {
+                                            echo $deposit_status;
+                                        } ?>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
 
-                        <?php if(isset($deposit_payment_mode)){
+                        <?php if (isset($deposit_payment_mode)) {
                             // print_r($deposit_payment_mode);
-                            if($deposit_payment_mode != 'Account Balance'){ ?>
+                            if ($deposit_payment_mode != 'Account Balance') { ?>
 
                         <div class="row ">
                             <div class="col-12">
@@ -151,7 +164,7 @@
                                             <br>
                                             <p>
                                                 Send your transaction receipt to
-                                                <strong>payments@equifinance.com</strong>
+                                                <strong>transactions@member-equifinance.uk</strong>
                                             </p>
                                             <!-- <p class="float-right">
                                                 The receipt will serve as your proof of payment.
@@ -172,7 +185,7 @@
                         <div class="row">
                             <div class="col-md-2 offset-md-10">
                                 <br>
-                                <a href="<?php echo base_url();?>plans" class="btn deposit_detail_confirm">CONFIRM</a>
+                                <a href="<?php echo base_url(); ?>plans" class="btn deposit_detail_confirm">CONFIRM</a>
                             </div>
                         </div>
                     </div>
