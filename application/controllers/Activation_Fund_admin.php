@@ -123,6 +123,6 @@ class Activation_fund_admin extends CI_Controller
         // }
         $member_list = $this->Members->search_members($search_term, "username");
 
-        print_r($member_list);
+        // print_r($member_list);
     }
 }

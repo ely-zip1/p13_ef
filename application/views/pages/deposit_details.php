@@ -153,7 +153,7 @@ $this->load->view('templates/header');
 
                         <?php if (isset($deposit_payment_mode)) {
                             // print_r($deposit_payment_mode);
-                            if ($deposit_payment_mode != 'Account Balance') { ?>
+                            if ($deposit_payment_mode != 'Account Balance' || $deposit_payment_mode != 'Activation Fund') { ?>
 
                         <div class="row ">
                             <div class="col-12">
