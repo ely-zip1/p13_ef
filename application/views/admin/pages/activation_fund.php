@@ -10,7 +10,7 @@
                         <div class="col-lg-6"></div>
                         <div class="col-lg-6">
 
-                            <?php echo form_open('admin_loan') ?>
+                            <?php echo form_open('Activation_fund_admin') ?>
                             <div class="form-group">
                                 <div class="input-group">
                                     <input type="text" name="search-term" class="form-control">
