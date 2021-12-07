@@ -64,7 +64,7 @@ $this->load->view('templates/header');
 
                                 <?php if (isset($deposit_payment_mode)) {
                                     // print_r($deposit_payment_mode);
-                                    if ($deposit_payment_mode != 'Account Balance' || $deposit_payment_mode != 'Activation Fund') { ?>
+                                    if ($deposit_payment_mode != 'Account Balance' or $deposit_payment_mode != 'Activation Fund') { ?>
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
@@ -153,7 +153,7 @@ $this->load->view('templates/header');
 
                         <?php if (isset($deposit_payment_mode)) {
                             // print_r($deposit_payment_mode);
-                            if ($deposit_payment_mode != 'Account Balance' || $deposit_payment_mode != 'Activation Fund') { ?>
+                            if ($deposit_payment_mode != 'Account Balance' or $deposit_payment_mode != 'Activation Fund') { ?>
 
                         <div class="row ">
                             <div class="col-12">
