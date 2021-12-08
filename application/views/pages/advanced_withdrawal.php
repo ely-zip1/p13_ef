@@ -74,9 +74,18 @@ $this->load->view('templates/header');
                         <label for="amount">Amount Applied for
                             <small class="text-muted">(Max: 40% of the capital invested.)</small>
                         </label>
-                        <input type="text" class="form-control <?php if (strlen(form_error('amount')) > 0) {
-                                                                    echo "is-invalid";
-                                                                } ?>" required name="amount">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                            </div>
+                            <input type="number" class="form-control <?php if (strlen(form_error('amount')) > 0) {
+                                                                            echo "is-invalid";
+                                                                        } ?>" placeholder="0.00" aria-label="amount"
+                                required aria-describedby="basic-addon1" name="amount">
+                        </div>
+                        <!-- <input type="text" class="form-control <?php if (strlen(form_error('amount')) > 0) {
+                                                                        echo "is-invalid";
+                                                                    } ?>" required name="amount"> -->
                         <div class="invalid-feedback">
                             <?php echo form_error('amount'); ?>
                         </div>
