@@ -71,6 +71,10 @@
     .table-receipt-data {
         text-align: left !important;
     }
+    .totals-row div {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 body {
