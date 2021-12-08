@@ -79,7 +79,7 @@ class Fund_transfer  extends CI_Controller
 			$received['date'] = $received_fund->date;
 			$received['source'] = "E-Money";
 
-			array_push($received_fund_history, $received_fund);
+			array_push($received_fund_history, $received);
 		}
 		foreach ($received_af as $received_fund) {
 			$received = array();
@@ -90,7 +90,7 @@ class Fund_transfer  extends CI_Controller
 			$received['date'] = $received_fund->date;
 			$received['source'] = "Activation Fund";
 
-			array_push($received_fund_history, $received_fund);
+			array_push($received_fund_history, $received);
 		}
 
 		$data['received_fund_history'] = $received_fund_history;
