@@ -1018,3 +1018,8 @@ button.close {
     line-height: 55px;
     margin-left: 10px;
 }
+
+.capital-dollar-sign {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
