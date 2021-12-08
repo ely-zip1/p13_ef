@@ -65,7 +65,27 @@ $this->load->view('templates/header');
                                 <?php
                                 if (isset($deposit_payment_mode)) {
                                     // print_r($deposit_payment_mode);
-                                    if ($deposit_payment_mode != 'E-Money' || $deposit_payment_mode != 'Activation Fund') { ?>
+                                    if ($deposit_payment_mode == 'E-Money') { ?>
+                                <div class="row table-receipt-row">
+                                    <div class="col-sm-4 table-receipt-head">
+                                        Send to :
+                                    </div>
+                                    <div class="col-sm-8 table-receipt-data">
+                                        ...
+                                    </div>
+                                </div>
+
+                                <?php } else if ($deposit_payment_mode == 'Activation Fund') { ?>
+                                <div class="row table-receipt-row">
+                                    <div class="col-sm-4 table-receipt-head">
+                                        Send to :
+                                    </div>
+                                    <div class="col-sm-8 table-receipt-data">
+                                        ...
+                                    </div>
+                                </div>
+
+                                <?php } else { ?>
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
@@ -135,8 +155,10 @@ $this->load->view('templates/header');
 
                                 </div>
 
-                                <?php }
-                                } ?>
+                                <?php
+                                    }
+                                }
+                                ?>
 
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
