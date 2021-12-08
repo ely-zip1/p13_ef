@@ -66,6 +66,7 @@ $this->load->view('templates/header');
                                     // print_r($deposit_payment_mode);
                                     if ($deposit_payment_mode != 'E-Money' or $deposit_payment_mode != 'Activation Fund') { ?>
 
+                                print_r($deposit_payment_mode);
                                 <div class="row table-receipt-row">
                                     <div class="col-sm-4 table-receipt-head">
                                         Send to :
