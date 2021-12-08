@@ -36,6 +36,7 @@ class Fund_transfer  extends CI_Controller
 		$member_data = $this->Members->get_member($this->session->username);
 
 		$sent_funds = $this->Fund_transfer_model->sent_per_member($member_data->id);
+		$sent_af = $this->Activation_fund_model->get_sent_funds($member_data->id);
 
 		$sent_fund_history = array();
 		foreach ($sent_funds as $sent_fund) {
@@ -45,7 +46,19 @@ class Fund_transfer  extends CI_Controller
 			$recipient_data  = $this->Members->get_member_by_id($sent_fund->receiver_member_id);
 			$sent['recipient'] = $recipient_data->full_name;
 			$sent['date'] = $sent_fund->date;
-			$sent['source'] = $sent_fund->source_of_fund == 'e_money' ? "E-Money" : "Activation Fund";
+			$sent['source'] = "E-Money";
+
+
+			array_push($sent_fund_history, $sent);
+		}
+		foreach ($sent_af as $sent_fund) {
+			$sent = array();
+			$sent['amount'] = $sent_fund->amount;
+
+			$recipient_data  = $this->Members->get_member_by_id($sent_fund->peer_id);
+			$sent['recipient'] = $recipient_data->full_name;
+			$sent['date'] = $sent_fund->date;
+			$sent['source'] = "Activation Fund";
 
 			array_push($sent_fund_history, $sent);
 		}
@@ -54,6 +67,7 @@ class Fund_transfer  extends CI_Controller
 
 
 		$received_funds = $this->Fund_transfer_model->received_per_member($member_data->id);
+		$received_af = $this->Activation_fund_model->get_received_funds($member_data->id);
 
 		$received_fund_history = array();
 		foreach ($received_funds as $received_fund) {
@@ -63,9 +77,20 @@ class Fund_transfer  extends CI_Controller
 			$sender_data  = $this->Members->get_member_by_id($received_fund->sender_member_id);
 			$received['sender'] = $sender_data->full_name;
 			$received['date'] = $received_fund->date;
-			$received['source'] = $received_fund->source_of_fund == 'e_money' ? "E-Money" : "Activation Fund";
+			$received['source'] = "E-Money";
 
-			array_push($received_fund_history, $received);
+			array_push($received_fund_history, $received_fund);
+		}
+		foreach ($received_af as $received_fund) {
+			$received = array();
+			$received['amount'] = $received_fund->amount;
+
+			$sender_data  = $this->Members->get_member_by_id($received_fund->peer_id);
+			$received['sender'] = $sender_data->full_name;
+			$received['date'] = $received_fund->date;
+			$received['source'] = "Activation Fund";
+
+			array_push($received_fund_history, $received_fund);
 		}
 
 		$data['received_fund_history'] = $received_fund_history;
@@ -111,13 +136,17 @@ class Fund_transfer  extends CI_Controller
 				$sender_data = array(
 					'member_id' => $member_data->id,
 					'amount' => -1 * abs($_POST['transfer_amount']),
-					'date' => date('Y-m-d H:i:s')
+					'date' => date('Y-m-d H:i:s'),
+					'status' => 'sent',
+					'peer_id' => $receiver_data->id
 				);
 
 				$receiver_data = array(
 					'member_id' => $receiver_data->id,
 					'amount' => $_POST['transfer_amount'],
-					'date' => date('Y-m-d H:i:s')
+					'date' => date('Y-m-d H:i:s'),
+					'status' => 'received',
+					'peer_id' => $member_data->id
 				);
 
 				$this->Activation_fund_model->add($sender_data);

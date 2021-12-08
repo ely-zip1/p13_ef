@@ -62,4 +62,22 @@ class Activation_fund_model extends CI_Model
 
         return $total_activation_fund;
     }
+
+    public function get_sent_funds($member_id)
+    {
+        $this->db->where('member_id', $member_id);
+        $this->db->where('status', 'sent');
+        $query = $this->db->get('td_activation_funds');
+
+        return $query->result();
+    }
+
+    public function get_received_funds($member_id)
+    {
+        $this->db->where('member_id', $member_id);
+        $this->db->where('status', 'received');
+        $query = $this->db->get('td_activation_funds');
+
+        return $query->result();
+    }
 }
