@@ -66,7 +66,7 @@ class Plans extends CI_Controller
 
 		$this->form_validation->set_rules('chosen_plan', 'Plan', 'required');
 		$this->form_validation->set_rules('plan_payment_mode', 'Payment Mode', 'required');
-		$this->form_validation->set_rules('deposit_amount', 'Deposit Amount', 'required|regex_match[/^(\d*\.)?\d+$/]|callback_valid_deposit|callback_validate_reinvestment');
+		$this->form_validation->set_rules('deposit_amount', 'Deposit Amount', 'required|regex_match[/^(\d*\.)?\d+$/]|callback_valid_deposit|callback_validate_reinvestment|callback_validate_activation_fund');
 
 		if ($this->form_validation->run() == FALSE) {
 			if (isset($_POST['chosen_plan'])) {
@@ -270,6 +270,56 @@ class Plans extends CI_Controller
 			// } 
 			else {
 				return true;
+			}
+		} else {
+			return true;
+		}
+	}
+
+	public function validate_activation_fund()
+	{
+		if ($_POST['plan_payment_mode'] != 'mode17') {
+			return true;
+		}
+
+		$member_data = $this->Members->get_member($this->session->username);
+		$total_AF = $this->Activation_fund_model->total_fund_per_member($member_data->id);
+
+		if ($_POST['chosen_plan'] == 'plan1') {
+			if ($_POST['deposit_amount'] >= 100 && $_POST['deposit_amount'] <= 999) {
+				if ($total_AF >= 100 && $total_AF >= $_POST['deposit_amount']) {
+					return true;
+				} else {
+					$this->form_validation->set_message('validate_activation_fund', 'Insufficient Fund.');
+					return false;
+				}
+			} else {
+				$this->form_validation->set_message('validate_activation_fund', 'Amount does not match your selected package.');
+				return false;
+			}
+		} else if ($_POST['chosen_plan'] == 'plan2') {
+			if ($_POST['deposit_amount'] >= 1000 && $_POST['deposit_amount'] <= 9999) {
+				if ($total_AF >= 1000 && $total_AF >= $_POST['deposit_amount']) {
+					return true;
+				} else {
+					$this->form_validation->set_message('validate_activation_fund', 'Insufficient Fund.');
+					return false;
+				}
+			} else {
+				$this->form_validation->set_message('validate_activation_fund', 'Amount does not match your selected package.');
+				return false;
+			}
+		} else if ($_POST['chosen_plan'] == 'plan3') {
+			if ($_POST['deposit_amount'] >= 10000 && $_POST['deposit_amount'] <= 999999999) {
+				if ($total_AF >= 10000 && $total_AF >= $_POST['deposit_amount']) {
+					return true;
+				} else {
+					$this->form_validation->set_message('validate_activation_fund', 'Insufficient Funds.');
+					return false;
+				}
+			} else {
+				$this->form_validation->set_message('validate_activation_fund', 'Amount does not match your selected package.');
+				return false;
 			}
 		} else {
 			return true;
