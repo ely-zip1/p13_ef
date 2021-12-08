@@ -64,7 +64,7 @@ $this->load->view('templates/header');
                         <label for="capital-invested">Capital Invested</label>
                         <div class="input-group mb-3">
                             <label class="input-group-text" for="inputGroupSelect01">$</label>
-                            <select class="form-select" id="inputGroupSelect01" required name="capital">
+                            <select class="form-control form-select" id="inputGroupSelect01" required name="capital">
                                 <?php
                                 // print_r($investment_list);
                                 foreach ($investment_list as $investment) { ?>
