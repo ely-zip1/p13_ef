@@ -135,19 +135,26 @@ class Plans extends CI_Controller
 				$data['deposit_payment_mode'] = strtoupper($modes_of_payment[7]->name);
 			}
 
-			// if ($_POST['plan_payment_mode'] == 'mode7') {
-			// 	$deposit_data['is_pending'] = '0';
-			// 	$deposit_data['date_approved'] = date('Y-m-d H:i:s');
-			// } else {
-			// 	$deposit_data['is_pending'] = '1';
-			// }
+			if ($_POST['plan_payment_mode'] == 'mode7') {
+				$deposit_data['is_pending'] = '0';
+				$deposit_data['date_approved'] = date('Y-m-d H:i:s');
+			} else if ($_POST['plan_payment_mode'] == 'mode17') {
+				$deposit_data['is_pending'] = '0';
+				$deposit_data['date_approved'] = date('Y-m-d H:i:s');
+			} else {
+				$deposit_data['is_pending'] = '1';
+			}
 
-			$deposit_data['is_pending'] = '1';
+			// $deposit_data['is_pending'] = '1';
 
 			$this->DepositModel->add_deposit($deposit_data);
 
 
 			if ($_POST['plan_payment_mode'] == 'mode7') {
+				$last_deposit = $this->DepositModel->get_latest_deposit($member_data->id);
+				$this->credit_referral_bonus($last_deposit->id);
+			}
+			if ($_POST['plan_payment_mode'] == 'mode17') {
 				$last_deposit = $this->DepositModel->get_latest_deposit($member_data->id);
 				$this->credit_referral_bonus($last_deposit->id);
 			}
