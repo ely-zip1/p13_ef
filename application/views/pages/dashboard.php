@@ -36,7 +36,7 @@ $this->load->view('templates/header');
                         <span>Your Personal Affiliate Link:</span>
                         <a href="<?php echo base_url(); ?>my/ref/<?php echo $username; ?>" class="affiliate-link"
                             id="affiliate-link">
-                            <?php echo base_url(); ?>my/ref/<?php echo $username; ?>
+                            <?php echo base_url() . "my/ref/" . $username; ?>
                         </a>
                         <button type="button" id="TextToCopy" class="copy-button" data-toggle="modal"
                             data-target=".modal-copy-success">
