@@ -53,7 +53,7 @@ class Fund_transfer  extends CI_Controller
 		}
 		foreach ($sent_af as $sent_fund) {
 			$sent = array();
-			$sent['amount'] = $sent_fund->amount;
+			$sent['amount'] = abs($sent_fund->amount);
 
 			$recipient_data  = $this->Members->get_member_by_id($sent_fund->peer_id);
 			$sent['recipient'] = $recipient_data->full_name;
@@ -83,7 +83,7 @@ class Fund_transfer  extends CI_Controller
 		}
 		foreach ($received_af as $received_fund) {
 			$received = array();
-			$received['amount'] = $received_fund->amount;
+			$received['amount'] = abs($received_fund->amount);
 
 			$sender_data  = $this->Members->get_member_by_id($received_fund->peer_id);
 			$received['sender'] = $sender_data->full_name;
