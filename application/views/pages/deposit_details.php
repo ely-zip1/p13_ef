@@ -174,9 +174,14 @@ $this->load->view('templates/header');
                             </div>
                         </div>
 
-                        <?php if (isset($deposit_payment_mode)) {
+                        <?php
+                        if (isset($deposit_payment_mode)) {
                             // print_r($deposit_payment_mode);
-                            if ($deposit_payment_mode != 'E-Money' || $deposit_payment_mode != 'Activation Fund') { ?>
+                            if ($deposit_payment_mode == 'E-Money') { ?>
+
+                        <?php } else if ($deposit_payment_mode == 'Activation Fund') { ?>
+
+                        <?php } else { ?>
 
                         <div class="row ">
                             <div class="col-12">
