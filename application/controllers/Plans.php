@@ -17,6 +17,7 @@ class Plans extends CI_Controller
 		$this->load->model('Account_model');
 		$this->load->model('Fund_bonus_model');
 		$this->load->model('Lifestyle_bonus_model');
+		$this->load->model('Activation_fund_model');
 
 		date_default_timezone_set('Asia/Manila');
 	}
@@ -147,7 +148,18 @@ class Plans extends CI_Controller
 
 			// $deposit_data['is_pending'] = '1';
 
-			$this->DepositModel->add_deposit($deposit_data);
+			if ($_POST['plan_payment_mode'] == 'mode17') {
+				$new_deposit = array(
+					'member_id' => $member_data->id,
+					'amount' => -1 * abs($_POST['deposit_amount']),
+					'date' => date('Y-m-d H:i:s')
+				);
+
+				$this->Activation_fund_model->add($new_deposit);
+				$this->DepositModel->add_deposit($deposit_data);
+			} else {
+				$this->DepositModel->add_deposit($deposit_data);
+			}
 
 
 			if ($_POST['plan_payment_mode'] == 'mode7') {
