@@ -63,7 +63,7 @@ $this->load->view('templates/header');
                     <div class="form-group">
                         <label for="capital-invested">Capital Invested</label>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" class="capital-dollar-sign">$</span>
+                            <span class="input-group-text capital-dollar-sign">$</span>
                             <select class="form-control form-select" id="inputGroupSelect01" required name="capital">
                                 <?php
                                 // print_r($investment_list);
