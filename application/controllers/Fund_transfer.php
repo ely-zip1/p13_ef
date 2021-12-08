@@ -105,19 +105,37 @@ class Fund_transfer  extends CI_Controller
 			// print_r('akjhfkajsthfklsadf');
 			$this->load->view('pages/fund_transfer', $data);
 		} else {
-			$transfer_data = array(
-				'sender_member_id' => $member_data->id
-			);
-
-			//   $referral_code_data = $this->Referral_codes->get_by_code($_POST['receiver_code']);
 			$receiver_data = $this->Members->get_member($_POST['receiver_code']);
 
-			$transfer_data['receiver_member_id'] = $receiver_data->id;
-			$transfer_data['amount'] = $_POST['transfer_amount'];
-			$transfer_data['date'] = date('Y-m-d H:i:s');
-			$transfer_data['source_of_fund'] = $_POST['transfer_source'];
+			if ($_POST['transfer_source'] == 'act_fund') {
+				$sender_data = array(
+					'member_id' => $member_data->id,
+					'amount' => -1 * abs($_POST['transfer_amount']),
+					'date' => date('Y-m-d H:i:s')
+				);
 
-			$this->Fund_transfer_model->add($transfer_data);
+				$receiver_data = array(
+					'member_id' => $receiver_data->id,
+					'amount' => $_POST['transfer_amount'],
+					'date' => date('Y-m-d H:i:s')
+				);
+
+				$this->Activation_fund_model->add($sender_data);
+				$this->Activation_fund_model->add($receiver_data);
+			} else {
+				$transfer_data = array(
+					'sender_member_id' => $member_data->id
+				);
+
+				//   $referral_code_data = $this->Referral_codes->get_by_code($_POST['receiver_code']);
+				$transfer_data['receiver_member_id'] = $receiver_data->id;
+				$transfer_data['amount'] = $_POST['transfer_amount'];
+				$transfer_data['date'] = date('Y-m-d H:i:s');
+				$transfer_data['source_of_fund'] = $_POST['transfer_source'];
+
+				$this->Fund_transfer_model->add($transfer_data);
+			}
+
 
 			// print_r($transfer_data);
 			$this->session->set_flashdata('transfer_success', "You successfuly transfered $ " . number_format($_POST['transfer_amount'], 2, '.', ',') . " to " . $_POST['receiver_code'] . "!");
