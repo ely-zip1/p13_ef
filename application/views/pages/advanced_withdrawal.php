@@ -81,7 +81,7 @@ $this->load->view('templates/header');
                             <input type="number" class="form-control <?php if (strlen(form_error('amount')) > 0) {
                                                                             echo "is-invalid";
                                                                         } ?>" placeholder="0.00" aria-label="amount"
-                                required aria-describedby="basic-addon1" name="amount">
+                                required aria-describedby="basic-addon1" name="amount" autocomplete="off">
                         </div>
                         <!-- <input type="text" class="form-control <?php if (strlen(form_error('amount')) > 0) {
                                                                         echo "is-invalid";
