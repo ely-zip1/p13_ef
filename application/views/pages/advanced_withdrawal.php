@@ -69,7 +69,8 @@ $this->load->view('templates/header');
                                 // print_r($investment_list);
                                 foreach ($investment_list as $investment) { ?>
 
-                                <option value="<?= $investment->id; ?>"><?= $investment->amount ?></option>
+                                <option value="<?= $investment->id; ?>">
+                                    <?= number_format($investment->amount, 2, '.', ','); ?></option>
 
                                 <?php    }
                                 ?>
