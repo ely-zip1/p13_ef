@@ -47,29 +47,37 @@ $this->load->view('templates/header');
                     </div>
                     <?php } ?>
                     <?php echo form_open('advanced_withdrawal'); ?>
+
                     <div class="form-group">
                         <label for="fullname">Client's Name</label>
                         <input type="text" class="form-control form-control-sm" required name="fullname"
                             value="<?= $fullname; ?>" readonly>
                     </div>
+
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control form-control-sm" required name="username"
                             value="<?= $username; ?>" readonly>
                     </div>
+
                     <div class="form-group">
                         <label for="capital-invested">Capital Invested</label>
-                        <select class="form-control form-control-sm" required name="capital">
-                            <?php
-                            // print_r($investment_list);
-                            foreach ($investment_list as $investment) { ?>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect01">$</label>
+                            <select class="form-select" id="inputGroupSelect01" required name="capital">
+                                <?php
+                                // print_r($investment_list);
+                                foreach ($investment_list as $investment) { ?>
 
-                            <option value="<?= $investment->id; ?>"><?= $investment->amount ?></option>
+                                <option value="<?= $investment->id; ?>"><?= $investment->amount ?></option>
 
-                            <?php    }
-                            ?>
-                        </select>
+                                <?php    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
+
+
                     <div class="form-group">
                         <label for="amount">Amount Applied for
                             <small class="text-muted">(Max: 40% of the capital invested.)</small>
@@ -83,13 +91,11 @@ $this->load->view('templates/header');
                                                                         } ?>" placeholder="0.00" aria-label="amount"
                                 required aria-describedby="basic-addon1" name="amount" autocomplete="off">
                         </div>
-                        <!-- <input type="text" class="form-control <?php if (strlen(form_error('amount')) > 0) {
-                                                                        echo "is-invalid";
-                                                                    } ?>" required name="amount"> -->
                         <div class="invalid-feedback">
                             <?php echo form_error('amount'); ?>
                         </div>
                     </div>
+
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" required
                             name="agree-checkbox">
