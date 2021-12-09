@@ -116,7 +116,8 @@ class Account_settings extends CI_Controller
 					'swift_code' => '',
 					'bank_code' => $_POST['bank_code'],
 					'member_id' => $member_data->id,
-					'country' => $_POST['country']
+					// 'country' => $_POST['country']
+					'country' => ''
 				);
 				$this->Bank_model->update($new_bank_details);
 			} else if ($_POST['account_submit'] == 'bitcoin') {
