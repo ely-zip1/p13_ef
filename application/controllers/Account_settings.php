@@ -113,6 +113,7 @@ class Account_settings extends CI_Controller
 					'account_name' => $_POST['bank_account_name'],
 					'account_number' => $_POST['bank_account_number'],
 					// 'swift_code' => $_POST['bank_swift_code'],
+					'swift_code' => '',
 					'bank_code' => $_POST['bank_code'],
 					'member_id' => $member_data->id,
 					'country' => $_POST['country']
