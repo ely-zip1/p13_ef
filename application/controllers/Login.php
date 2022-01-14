@@ -75,7 +75,7 @@ class Login  extends CI_Controller
 						$is_code_updated =  $this->members->update_auth($member_data->id, $auth_code);
 						if ($is_code_updated == 1) {
 							// $is_email_sent = $this->send_auth_code($member_data->username, $auth_code, $member_data->email_address);
-							$is_email_sent = false;
+							$is_email_sent = true;
 							if ($is_email_sent) {
 								$user['user_id'] = $member_data->id;
 								$this->session->set_userdata($user);
